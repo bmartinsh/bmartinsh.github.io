@@ -6,11 +6,15 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Home</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/nicepage.css')}}" media="screen">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/Home.css')}}" media="screen">
-    <script class="u-script" type="text/javascript" src="{{ url_for('static', filename='js/jquery.js')}}" defer=""></script>
-    <script class="u-script" type="text/javascript" src="{{ url_for('static', filename='js/nicepage.js')}}" defer=""></script>
-    <script class="u-script" type="text/javascript" src="{{ url_for('static', filename='js/script.js')}}" defer=""></script>
+    <link rel="stylesheet" href="css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="css/Home.css" media="screen">
+    <link rel="stylesheet" href="css/6.58dc7bb8.chunk.css" media="screen">
+    <link rel="stylesheet" href="css/7.9221b8e1.chunk.css" media="screen">
+    <link rel="stylesheet" href="css/9.3a13006c.chunk.css" media="screen">
+    <link rel="stylesheet" href="css/main.87247447.chunk.css" media="screen">
+    <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="js/nicepage.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="js/script.js" defer=""></script>
     <meta property="og:title" content="BTS Co pilot">
     <meta property="og:description" content="Best place to generate Bed Tiem Stories">
     <meta property="og:image" content="images/c267f3ce97e6dd79975da8d5128630d3fe89635fafdcb1d683e63faf6b4c71ee632313c7288461520d2559f298e089f5e0d25aa91c8704506e1bbd_1280.png">
@@ -21,7 +25,7 @@
 		"@context": "http://schema.org",
 		"@type": "Organization",
 		"name": "",
-		"logo": "{{ url_for('static', filename='images/c267f3ce97e6dd79975da8d5128630d3fe89635fafdcb1d683e63faf6b4c71ee632313c7288461520d2559f298e089f5e0d25aa91c8704506e1bbd_1280.png')}}
+		"logo": "images/c267f3ce97e6dd79975da8d5128630d3fe89635fafdcb1d683e63faf6b4c71ee632313c7288461520d2559f298e089f5e0d25aa91c8704506e1bbd_1280.png'
 }</script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:type" content="website">
@@ -29,8 +33,8 @@
   <body data-home-page="Home.html" data-home-page-title="Home" class="u-body">
     <header class="u-clearfix u-header u-header" id="sec-412a">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <a href="" class="u-image u-logo u-image-1" data-image-width="1280" data-image-height="1280">
-            <img src="{{ url_for('static', filename='images/c267f3ce97e6dd79975da8d5128630d3fe89635fafdcb1d683e63faf6b4c71ee632313c7288461520d2559f298e089f5e0d25aa91c8704506e1bbd_1280.png')}}" class="u-logo-image u-logo-image-1">
+        <a onclick="callLongBTS()" class="u-image u-logo u-image-1" data-image-width="1280" data-image-height="1280">
+            <img src="images/c267f3ce97e6dd79975da8d5128630d3fe89635fafdcb1d683e63faf6b4c71ee632313c7288461520d2559f298e089f5e0d25aa91c8704506e1bbd_1280.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
             <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -76,16 +80,51 @@
           </div> -->
         <div class="btn-list">
           <a onclick="callWs()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Inspire Me!</a>
-          <a onclick="printDiv('pdf')" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">PRINT MY STORY</a>
-          <a onclick="saveDiv('pdf', 'Title')"  class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-3">DOWNLOAD BTS</a>
+          <div>
+            <p>Length: 
+              <span name="length" id="length">
+              </span>
+            </p>
+            <input type="range" min="10" max="50" value="20" step="10" class="sliderl" id="RangeLength">  
+          </div>
+          <br>
+          <div>
+            <p>Temperature: 
+              <span name="temp" id="temp">
+              </span>
+            </p>
+            <input type="range" min="0.0" max="1.0" value="0.7" step="0.1" class="slidert" id="RangeTemp">
+            
+          </div>
+          <a onclick="">🗣</a>
+          <!-- <a onclick="printDiv('pdf')" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">PRINT MY STORY</a>
+          <a onclick="saveDiv('pdf', 'Title')"  class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-3">DOWNLOAD BTS</a> -->
         </div>
+        <!-- <br>
+          <div class="slidecontainer">
+            <p>Temperature: <span id="temp"></span></p><input type="range" min="0" max="1" value="0.7" step="0.1" class="slidert" id="myRange">
+          </div>
+          <div>
+            <p>Length: <span id="length"></span></p><input type="range" min="10" max="50" value="20" step="10" class="sliderl" id="myRangeL">
+          </div> -->
+        <br/>
+
+        <!-- <div class="btn-list">
+          <a onclick=""  class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-3">SPEAK</a> -->
+          <!-- <a onclick=""  class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-3">LISTEN</a> -->
+        <!-- </div> -->
         <div>
           <div class="u-repeater u-repeater-1">
-            <a id="result_json" class="u-btn u-btn-round" style="min-width: 100% !important;">Need inspiration 🤔 click on Inspire Me 🔘!</a>
+            <a onclick="appPredict()" id="result_json" class="u-btn u-btn-round" style="min-width: 100% !important;">Need inspiration 🤔 click on Inspire Me!</a>
             <div id="pdf" class="u-container-style u-custom-item u-list-item u-repeater-item u-shape-rectangle">
               <div rows=4 class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-container-layout-1">
-                <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="5" style="min-width: 100% !important;">Once upon a time, </textarea>
+                <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="10" style="min-width: 100% !important;">Once upon a time, </textarea>
               </div>
+            </div>
+            <div class="btn-list">
+              <a onclick="printDiv('pdf')" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">PRINT MY STORY</a>
+              <a onclick="saveDiv('pdf', 'Title')"  class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-3">DOWNLOAD BTS</a>  
+              <a onclick="" >🎙</a>
             </div>
           </div>
         </div>
@@ -169,27 +208,65 @@
     <script>
       callWs = function(){
 	// The Endpoint URL
-	// Google API
+	// Google API Created on Jan 6 : https://gpt2c-56chpffh5q-uc.a.run.app/
+  // Previous API : https://bts-api-56chpffh5q-uc.a.run.app
+  // API build on Jan 8 11 AM
   var prompt = document.getElementById('text-val').value;
-  let url = `https://bts-api-56chpffh5q-uc.a.run.app/generate?prompt=${prompt}&length=10&nsamples=1&temperature=0.7`;
+  var length = document.getElementById('RangeLength').value;
+  var temp = document.getElementById('RangeTemp').value;
+  let url = `https://gpt2d-56chpffh5q-uc.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
 
 	fetch(url)
   .then(response => response.json())
   .then(data => {
     // Need to update the key from the JSON file once the API will be working (data.ok must be different)
     document.getElementById('result_json').innerText = data.text;
-  // })
-  // .then(function(response) {
-  // 	// Render the Response Status
-  // 	document.getElementById('result').innerHTML = response.status;
-  //   // Parse the body as JSON
-  //   return response.json();
-  // })
-  // .then(function(json) {
-  // 	// Render the parsed body
-  // 	document.getElementById('result_json').innerHTML = JSON.stringify(json);
   })
 }
+    </script>
+    <script>
+        callLongBTS = function(){
+	// Google API
+  var prompt = document.getElementById('text-val').value;
+  // var length = document.getElementById('RangeLength').value;
+  // Calling the new API built on Jan 8 11 AM
+  let url = `https://gpt2c-56chpffh5q-uc.a.run.app/generate?prompt=${prompt}&length=200&nsamples=1&temperature=0.7`;
+
+	fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    // Need to update the key from the JSON file once the API will be working (data.ok must be different)
+    document.getElementById('result_json').innerText = data.text;
+  })
+}  
+    </script>
+    <script>
+
+var slidert = document.getElementById("RangeTemp");
+var output = document.getElementById("temp");
+output.innerHTML = slidert.value;
+
+slidert.oninput = function() {
+  output.innerHTML = this.value;
+}
+
+    </script>
+    <script>
+var sliderl = document.getElementById("RangeLength");
+var output = document.getElementById("length");
+output.innerHTML = sliderl.value;
+
+sliderl.oninput = function() {
+  output.innerHTML = this.value;
+}
+    </script>
+    <script>
+function appPredict() {
+  var h = document.getElementById("text-val");
+  var s = document.getElementById("result_json").innerText;
+  h.insertAdjacentText("beforeend", s);
+}
+
     </script>
   </body>
 </html>
