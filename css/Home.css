@@ -262,7 +262,7 @@
 
 .u-section-2 .u-image-1 {
   min-height: 400px;
-  background-image: url(images/bannierew.jpg);
+  background-image: url("images/bannierew.jpg");
   background-position: 50% 50%;
 }
 
