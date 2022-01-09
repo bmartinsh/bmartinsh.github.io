@@ -9,6 +9,32 @@
   margin: 0 !important;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #2cccc4;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
 .u-section-1 .u-sheet-1 {
   min-height: 1148px;
 }
