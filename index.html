@@ -72,7 +72,8 @@
         <div class="btn-list">
           <a onclick="callWs()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Inspire Me!</a>
           <div>
-            <p>Length: 
+            <p class="tooltip">Length: 
+              <span class="tooltiptext">Max number of tokens to generate. One token is roughly 4 characters</span>
               <span name="length" id="length">
               </span>
             </p>
@@ -80,12 +81,12 @@
           </div>
           <br>
           <div>
-            <p>Temperature: 
+            <p class="tooltip">Temperature: 
+              <span class="tooltiptext">Controls randomness. As the temperature approaches zero, the model will become deterministic and repetitive.</span>
               <span name="temp" id="temp">
               </span>
             </p>
             <input type="range" min="0.0" max="1.0" value="0.7" step="0.1" class="slidert" id="RangeTemp">
-            
           </div>
           <a onclick="">🗣</a>
           <!-- <a onclick="printDiv('pdf')" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">PRINT MY STORY</a>
