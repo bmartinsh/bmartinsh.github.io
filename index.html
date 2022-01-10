@@ -201,10 +201,12 @@
     <script>
       callWs = function(){
 	// The Endpoint URL
+  // API Jan 10 : https://bts-gpt2-on-56chpffh5q-uc.a.run.app/
+  // API Jan 8 : https://gpt2d-56chpffh5q-uc.a.run.app/
   var prompt = document.getElementById('text-val').value;
   var length = document.getElementById('RangeLength').value;
   var temp = document.getElementById('RangeTemp').value;
-  let url = `https://gpt2d-56chpffh5q-uc.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
+  let url = `https://bts-gpt2-on-56chpffh5q-uc.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
 
 	fetch(url)
   .then(response => response.json())
