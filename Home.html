@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/main.87247447.chunk.css" media="screen">
     <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="js/nicepage.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="js/script.js" defer=""></script>
+    <!-- <script class="u-script" type="text/javascript" src="js/script.js" defer=""></script> -->
     <meta property="og:title" content="BTS Co pilot">
     <meta property="og:description" content="Best place to generate Bed Time Stories">
     <meta property="og:image" content="images/c267f3ce97e6dd79975da8d5128630d3fe89635fafdcb1d683e63faf6b4c71ee632313c7288461520d2559f298e089f5e0d25aa91c8704506e1bbd_1280.png">
@@ -103,20 +103,6 @@
               <form>
                 <div rows=4 class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-container-layout-1">
                   <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="10" style="min-width: 100% !important;" placeholder="Once upon a time" ></textarea>
-                  <h2 class="no-browser-support">This feature works only with Google Chrome.</h2>
-                  <div class="app">
-                      <button id="start-record-btn" title="Start Recording">Start</button>
-                      <button id="pause-record-btn" title="Pause Recording">Pause</button>
-                      <button id="save-note-btn" title="Save Note">Save</button>   
-                      <p id="recording-instructions">Press the <strong>Start</strong> button and allow access.</p>
-                          
-                      <h3>My BTS</h3>
-                      <ul id="notes">
-                          <li>
-                              <p class="no-notes">You don't have any stories.</p>
-                          </li>
-                      </ul>
-                  </div>
                 </div>
             </div>
             <div class="btn-list">
@@ -174,8 +160,41 @@
         <span>Le Wagon</span>
       </a>. 
     </section>
+
+    <section>
+      <div class="container">
+
+        <h1>Voice Controlled Notes App</h1>
+        <p class="page-description">A tiny app that allows you to take notes by recording your voice</p>
+        <p><a class="tz-link" href="https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript">Read the full article on Tutorialzine »</a></p>
+
+        <h3 class="no-browser-support">Sorry, Your Browser Doesn't Support the Web Speech API. Try Opening This Demo In Google Chrome.</h3>
+
+        <div class="app"> 
+            <h3>Add New Note</h3>
+            <div class="input-single">
+                <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6"></textarea>
+            </div>         
+            <button id="start-record-btn" title="Start Recording">Start Recognition</button>
+            <button id="pause-record-btn" title="Pause Recording">Pause Recognition</button>
+            <button id="save-note-btn" title="Save Note">Save Note</button>   
+            <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
+            
+            <h3>My Notes</h3>
+            <ul id="notes">
+                <li>
+                    <p class="no-notes">You don't have any notes.</p>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
+
+    </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
 <script>
   callWs = function(){
