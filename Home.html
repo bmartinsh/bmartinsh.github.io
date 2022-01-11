@@ -103,8 +103,21 @@
               <form>
                 <div rows=4 class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-container-layout-1">
                   <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="10" style="min-width: 100% !important;" placeholder="Once upon a time" ></textarea>
+                  <h2 class="no-browser-support">This feature works only with Google Chrome.</h2>
+                  <div class="app">
+                      <button id="start-record-btn" title="Start Recording">Start</button>
+                      <button id="pause-record-btn" title="Pause Recording">Pause</button>
+                      <button id="save-note-btn" title="Save Note">Save</button>   
+                      <p id="recording-instructions">Press the <strong>Start</strong> button and allow access.</p>
+                          
+                      <h3>My BTS</h3>
+                      <ul id="notes">
+                          <li>
+                              <p class="no-notes">You don't have any stories.</p>
+                          </li>
+                      </ul>
+                  </div>
                 </div>
-              </form>
             </div>
             <div class="btn-list">
               <a onclick="printDiv('pdf')" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">PRINT MY STORY</a>
