@@ -214,7 +214,8 @@
     document.getElementById('result_json').innerText = data.text;
   })
 }
-
+</script>
+<script>
 callLongBTS = function(){
 	// Google API
   var prompt = document.getElementById('text-val').value;
@@ -229,18 +230,23 @@ callLongBTS = function(){
     document.getElementById('result_json').innerText = data.text;
   })
 } 
+</script>
 
-
+<script>
   /*-----------------------------
         Slider Range Buttons 
   ------------------------------*/
-var slidert = document.getElementById("RangeTemp");
+  var slidert = document.getElementById("RangeTemp");
 var output = document.getElementById("temp");
 output.innerHTML = slidert.value;
 
 slidert.oninput = function() {
   output.innerHTML = this.value;
 }
+</script>
+
+<script>
+
 var sliderl = document.getElementById("RangeLength");
 var output = document.getElementById("length");
 output.innerHTML = sliderl.value;
@@ -248,17 +254,21 @@ output.innerHTML = sliderl.value;
 sliderl.oninput = function() {
   output.innerHTML = this.value;
 }
+</script>
 
+<script>
   /*-----------------------------
         Append Prediction to Textarea 
   ------------------------------*/
 
-function appPredict() {
+  function appPredict() {
     var h = document.getElementById("text-val");
     var s = document.getElementById("result_json").innerText;
     h.insertAdjacentText("beforeend", s);
   }
 </script>
+
+
 
   </body>
 </html>
