@@ -205,33 +205,4 @@ try {
     localStorage.removeItem('note-' + dateTime); 
   }
 
-  /*-----------------------------
-        Printer and PDF export Functions 
-  ------------------------------*/
-
-  var doc = new jsPDF();
-
-  function saveDiv(divId, title) {
-    let userText = document.getElementById('text-val').value;
-    doc.text(userText, 10, 10, {maxWidth: 150})
-    doc.save('BTS.pdf');
-  }
-
-
-  function printDiv(divId) {
-
-    let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
-
-    mywindow.document.write('</head><body >');
-    mywindow.document.write(document.getElementById('text-val').value);
-    mywindow.document.write('</body></html>');
-
-    mywindow.document.close(); // necessary for IE >= 10
-    mywindow.focus(); // necessary for IE >= 10*/
-
-    mywindow.print();
-    mywindow.close();
-
-    return true;
-  }
 
