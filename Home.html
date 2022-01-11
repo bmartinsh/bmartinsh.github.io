@@ -101,7 +101,7 @@
             <input class="u-btn u-btn-round" type="submit" value="Add to my story" onClick="appPredict()">
             <div id="pdf" class="u-container-style u-custom-item u-list-item u-repeater-item u-shape-rectangle">
               <div rows=4 class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-container-layout-1">
-                <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="10" style="min-width: 100% !important;">Once upon a time, </textarea>
+                <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="10" style="min-width: 100% !important;" placeholder="Once upon a time" ></textarea>
               </div>
             </div>
             <div class="btn-list">
@@ -159,97 +159,8 @@
         <span>Le Wagon</span>
       </a>. 
     </section>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
-    <script>
-        var doc = new jsPDF();
 
-        function saveDiv(divId, title) {
-          let userText = document.getElementById('text-val').value;
-          doc.text(userText, 10, 10, {maxWidth: 150})
-          doc.save('BTS.pdf');
-        }
-
-
-        function printDiv(divId) {
-
-          let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
-
-          mywindow.document.write('</head><body >');
-          mywindow.document.write(document.getElementById('text-val').value);
-          mywindow.document.write('</body></html>');
-
-          mywindow.document.close(); // necessary for IE >= 10
-          mywindow.focus(); // necessary for IE >= 10*/
-
-          mywindow.print();
-          mywindow.close();
-
-          return true;
-        }
-    </script>
-    <script>
-      callWs = function(){
-	// The Endpoint URL
-	// Google API Created on Jan 6 : https://gpt2c-56chpffh5q-uc.a.run.app/
-  // Previous API : https://bts-api-56chpffh5q-uc.a.run.app
-  // API build on Jan 8 11 AM
-  var prompt = document.getElementById('text-val').value;
-  var length = document.getElementById('RangeLength').value;
-  var temp = document.getElementById('RangeTemp').value;
-  let url = `https://gpt2d-56chpffh5q-uc.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
-
-	fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-    document.getElementById('result_json').innerText = data.text;
-  })
-}
-    </script>
-    <script>
-        callLongBTS = function(){
-	// Google API
-  var prompt = document.getElementById('text-val').value;
-  // var length = document.getElementById('RangeLength').value;
-  // Calling the new API built on Jan 8 11 AM
-  let url = `https://gpt2c-56chpffh5q-uc.a.run.app/generate?prompt=${prompt}&length=200&nsamples=1&temperature=0.7`;
-
-	fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-    document.getElementById('result_json').innerText = data.text;
-  })
-}  
-    </script>
-    <script>
-
-var slidert = document.getElementById("RangeTemp");
-var output = document.getElementById("temp");
-output.innerHTML = slidert.value;
-
-slidert.oninput = function() {
-  output.innerHTML = this.value;
-}
-
-    </script>
-    <script>
-var sliderl = document.getElementById("RangeLength");
-var output = document.getElementById("length");
-output.innerHTML = sliderl.value;
-
-sliderl.oninput = function() {
-  output.innerHTML = this.value;
-}
-    </script>
-    <script>
-function appPredict() {
-  var h = document.getElementById("text-val");
-  var s = document.getElementById("result_json").innerText;
-  h.insertAdjacentText("beforeend", s);
-}
-
-    </script>
   </body>
 </html>
