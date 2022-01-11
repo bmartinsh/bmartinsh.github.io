@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/main.87247447.chunk.css" media="screen">
     <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="js/nicepage.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="js/script.js" defer=""></script>
+    <!-- <script class="u-script" type="text/javascript" src="js/script.js" defer=""></script> -->
     <meta property="og:title" content="BTS Co pilot">
     <meta property="og:description" content="Best place to generate Bed Time Stories">
     <meta property="og:image" content="images/c267f3ce97e6dd79975da8d5128630d3fe89635fafdcb1d683e63faf6b4c71ee632313c7288461520d2559f298e089f5e0d25aa91c8704506e1bbd_1280.png">
@@ -74,7 +74,8 @@
           <br/>
           <b></b>
         <div class="btn-list">
-          <a onclick="callWs()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Inspire Me!</a>
+          <a onclick="callWs()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Inspire Me 🧚‍♀️</a>
+          <a onclick="callWs()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👺</a>
           <div>
             <p class="tooltip">Length: 
               <span class="tooltiptext">Max number of tokens to generate.</span>
@@ -100,9 +101,10 @@
             <a id="result_json" class="u-btn u-btn-round" style="min-width: 100% !important;">Need inspiration 🤔 click on Inspire Me!</a>
             <input class="u-btn u-btn-round" type="submit" value="Add to my story" onClick="appPredict()">
             <div id="pdf" class="u-container-style u-custom-item u-list-item u-repeater-item u-shape-rectangle">
-              <div rows=4 class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-container-layout-1">
-                <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="10" style="min-width: 100% !important;">Once upon a time, </textarea>
-              </div>
+              <form>
+                <div rows=4 class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-container-layout-1">
+                  <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="10" style="min-width: 100% !important;" placeholder="Once upon a time" ></textarea>
+                </div>
             </div>
             <div class="btn-list">
               <a onclick="printDiv('pdf')" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">PRINT MY STORY</a>
@@ -160,36 +162,43 @@
       </a>. 
     </section>
 
+    <section>
+      <div class="container">
+
+        <h1>Voice Controlled Notes App</h1>
+        <p class="page-description">A tiny app that allows you to take notes by recording your voice</p>
+        <p><a class="tz-link" href="https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript">Read the full article on Tutorialzine »</a></p>
+
+        <h3 class="no-browser-support">Sorry, Your Browser Doesn't Support the Web Speech API. Try Opening This Demo In Google Chrome.</h3>
+
+        <div class="app"> 
+            <h3>Add New Note</h3>
+            <div class="input-single">
+                <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6"></textarea>
+            </div>         
+            <button id="start-record-btn" title="Start Recording">Start Recognition</button>
+            <button id="pause-record-btn" title="Pause Recording">Pause Recognition</button>
+            <button id="save-note-btn" title="Save Note">Save Note</button>   
+            <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
+            
+            <h3>My Notes</h3>
+            <ul id="notes">
+                <li>
+                    <p class="no-notes">You don't have any notes.</p>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+
+    </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
-    <script>
-        var doc = new jsPDF();
-
-        function saveDiv(divId, title) {
-          let userText = document.getElementById('text-val').value;
-          doc.text(userText, 10, 10, {maxWidth: 150})
-          doc.save('BTS.pdf');
-        }
-
-
-        function printDiv(divId) {
-
-          let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
-
-          mywindow.document.write('</head><body >');
-          mywindow.document.write(document.getElementById('text-val').value);
-          mywindow.document.write('</body></html>');
-
-          mywindow.document.close(); // necessary for IE >= 10
-          mywindow.focus(); // necessary for IE >= 10*/
-
-          mywindow.print();
-          mywindow.close();
-
-          return true;
-        }
-    </script>
-    <script>
-      callWs = function(){
+<script>
+  callWs = function(){
 	// The Endpoint URL
 	// Google API Created on Jan 6 : https://gpt2c-56chpffh5q-uc.a.run.app/
   // Previous API : https://bts-api-56chpffh5q-uc.a.run.app
@@ -206,35 +215,39 @@
     document.getElementById('result_json').innerText = data.text;
   })
 }
-    </script>
-    <script>
-        callLongBTS = function(){
+</script>
+<script>
+callLongBTS = function(){
 	// Google API
   var prompt = document.getElementById('text-val').value;
   // var length = document.getElementById('RangeLength').value;
   // Calling the new API built on Jan 8 11 AM
-  let url = `https://gpt2c-56chpffh5q-uc.a.run.app/generate?prompt=${prompt}&length=200&nsamples=1&temperature=0.7`;
+  let url = `https://gpt2c-56chpffh5q-uc.a.run.app/generate?prompt=${prompt}&length=1200&nsamples=1&temperature=0.7`;
 
 	fetch(url)
   .then(response => response.json())
   .then(data => {
     // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-    document.getElementById('result_json').innerText = data.text;
+    document.getElementById('text-val').innerText = data.full_text;
   })
-}  
-    </script>
-    <script>
+} 
+</script>
 
-var slidert = document.getElementById("RangeTemp");
+<script>
+  /*-----------------------------
+        Slider Range Buttons 
+  ------------------------------*/
+  var slidert = document.getElementById("RangeTemp");
 var output = document.getElementById("temp");
 output.innerHTML = slidert.value;
 
 slidert.oninput = function() {
   output.innerHTML = this.value;
 }
+</script>
 
-    </script>
-    <script>
+<script>
+
 var sliderl = document.getElementById("RangeLength");
 var output = document.getElementById("length");
 output.innerHTML = sliderl.value;
@@ -242,14 +255,19 @@ output.innerHTML = sliderl.value;
 sliderl.oninput = function() {
   output.innerHTML = this.value;
 }
-    </script>
-    <script>
-function appPredict() {
-  var h = document.getElementById("text-val");
-  var s = document.getElementById("result_json").innerText;
-  h.insertAdjacentText("beforeend", s);
-}
+</script>
 
-    </script>
+<script>
+  /*-----------------------------
+        Append Prediction to Textarea 
+  ------------------------------*/
+
+  function appPredict() {
+    var h = document.getElementById("text-val");
+    var s = document.getElementById("result_json").innerText;
+    h.insertAdjacentText("beforeend", s);
+  }
+</script>
+
   </body>
 </html>
