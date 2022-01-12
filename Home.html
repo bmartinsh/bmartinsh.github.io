@@ -82,17 +82,16 @@
             </span>
           </p>
           <input type="range" min="10" max="50" value="20" step="10" class="sliderl" id="RangeLength">  
+          <br>
+          <div>
+            <p class="tooltip">Temperature: 
+              <span class="tooltiptext">Controls randomness. As the temperature approaches zero, the model will become deterministic and repetitive.</span>
+              <span name="temp" id="temp">
+              </span>
+            </p>
+            <input type="range" min="0.0" max="1.0" value="0.7" step="0.1" class="slidert" id="RangeTemp">
+          </div>
         </div>
-        <br>
-        <div>
-          <p class="tooltip">Temperature: 
-            <span class="tooltiptext">Controls randomness. As the temperature approaches zero, the model will become deterministic and repetitive.</span>
-            <span name="temp" id="temp">
-            </span>
-          </p>
-          <input type="range" min="0.0" max="1.0" value="0.7" step="0.1" class="slidert" id="RangeTemp">
-        </div>
-        <a onclick="">🗣</a>
         <div>
           <div class="u-repeater u-repeater-1">
             <a id="result_json" style="min-width: 100% !important;">Need inspiration 🤔 click on Inspire Me!</a>
@@ -161,26 +160,24 @@
     <section>
       <div class="container">
 
-        <h1>Voice Controlled Notes App</h1>
-        <p class="page-description">A tiny app that allows you to take notes by recording your voice</p>
-        <p><a class="tz-link" href="https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript">Read the full article on Tutorialzine »</a></p>
+        <h1>Voice Controlled BTS App</h1>
 
-        <h3 class="no-browser-support">Sorry, Your Browser Doesn't Support the Web Speech API. Try Opening This Demo In Google Chrome.</h3>
+        <h3 class="no-browser-support">This App is only available from Google Chrome.</h3>
 
         <div class="app"> 
-            <h3>Add New Note</h3>
+            <h3>Add New BTS</h3>
             <div class="input-single">
                 <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6"></textarea>
             </div>         
-            <button id="start-record-btn" title="Start Recording">Start Recognition</button>
-            <button id="pause-record-btn" title="Pause Recording">Pause Recognition</button>
+            <button id="start-record-btn" title="Start Recording">▶️</button>
+            <button id="pause-record-btn" title="Pause Recording">⏸</button>
             <button id="save-note-btn" title="Save Note">Save Note</button>   
-            <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
+            <p id="recording-instructions">Press the <strong>▶️</strong> button and allow access.</p>
             
-            <h3>My Notes</h3>
+            <h3>My BTS</h3>
             <ul id="notes">
                 <li>
-                    <p class="no-notes">You don't have any notes.</p>
+                    <p class="no-notes">You don't have any stories.</p>
                 </li>
             </ul>
 
