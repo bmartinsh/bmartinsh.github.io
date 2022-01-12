@@ -8,10 +8,6 @@
     <title>Home</title>
     <link rel="stylesheet" href="css/nicepage.css" media="screen">
     <link rel="stylesheet" href="css/Home.css" media="screen">
-    <link rel="stylesheet" href="css/6.58dc7bb8.chunk.css" media="screen">
-    <link rel="stylesheet" href="css/7.9221b8e1.chunk.css" media="screen">
-    <link rel="stylesheet" href="css/9.3a13006c.chunk.css" media="screen">
-    <link rel="stylesheet" href="css/main.87247447.chunk.css" media="screen">
     <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="js/nicepage.js" defer=""></script>
     <!-- <script class="u-script" type="text/javascript" src="js/script.js" defer=""></script> -->
@@ -196,6 +192,34 @@
 
     </section> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+    <script>
+      var doc = new jsPDF();
+
+      function saveDiv(divId, title) {
+        let userText = document.getElementById('text-val').value;
+        doc.text(userText, 10, 10, {maxWidth: 150})
+        doc.save('BTS.pdf');
+      }
+
+
+      function printDiv(divId) {
+
+        let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
+
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(document.getElementById('text-val').value);
+        mywindow.document.write('</body></html>');
+
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10*/
+
+        mywindow.print();
+        mywindow.close();
+
+        return true;
+      }
+  </script>
+
 <script>
   callWs = function(){
 	// The Endpoint URL
