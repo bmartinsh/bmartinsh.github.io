@@ -69,8 +69,8 @@
           </div>
           <div class="btn-list">
             <a onclick="callTransFoWs()"  id="state_Ws" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Wake Up 🧚‍♀️</a>
-            <a onclick="callTransFoLove()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👺</a>
-            <a onclick="callTransFoSfi()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👾</a>
+            <a onclick="callTransFoLove()" id="state_Love" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👺</a>
+            <a onclick="callTransFoSfi()" id="state_SciFi" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👾</a>
           </div>        
           <br/>
         <div class="btn-list">
@@ -228,7 +228,30 @@ fetch(url)
 })
 }  
 </script>
-
+<script>
+  callTransFoLove = function(){
+  let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/start`;
+fetch(url)
+.then(response => response.json())
+.then(data => {
+  // Need to update the key from the JSON file once the API will be working (data.ok must be different)
+  console.log(data.confirm);
+  document.getElementById('state_Love').innerText = "Ready 🤖";
+})
+}  
+</script>
+<script>
+  callTransFoSfi = function(){
+  let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/start`; // Waiting for API SciFi
+fetch(url)
+.then(response => response.json())
+.then(data => {
+  // Need to update the key from the JSON file once the API will be working (data.ok must be different)
+  console.log(data.confirm);
+  document.getElementById('state_SciFi').innerText = "Ready 🤖";
+})
+}  
+</script>
 <script>
   callWs = function(){
 	// The Endpoint URL
@@ -273,7 +296,7 @@ fetch(url)
   var prompt = document.getElementById('text-val').value;
   var length = document.getElementById('RangeLength').value;
   var temp = document.getElementById('RangeTemp').value;
-  let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
+  let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`; // Waiting for API SciFi
 
 	fetch(url)
   .then(response => response.json())
