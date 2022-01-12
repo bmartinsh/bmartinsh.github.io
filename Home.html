@@ -71,7 +71,7 @@
           <b></b>
         <div class="btn-list">
           <a onclick="callWs()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Inspire Me 🧚‍♀️</a>
-          <a onclick="callWs()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👺</a>
+          <a onclick="callLove()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👺</a>
           <div>
             <p class="tooltip">Length: 
               <span class="tooltiptext">Max number of tokens to generate.</span>
@@ -226,10 +226,28 @@
 	// Google API Created on Jan 6 : https://gpt2c-56chpffh5q-uc.a.run.app/
   // Previous API : https://bts-api-56chpffh5q-uc.a.run.app
   // API build on Jan 8 11 AM
+  // New API 355 M : https://bts-gpt2-355-fairy-alwayson-56chpffh5q-dt.a.run.app/docs
   var prompt = document.getElementById('text-val').value;
   var length = document.getElementById('RangeLength').value;
   var temp = document.getElementById('RangeTemp').value;
-  let url = `https://gpt2d-56chpffh5q-uc.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
+  let url = `https://bts-gpt2-355-fairy-alwayson-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
+
+	fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    // Need to update the key from the JSON file once the API will be working (data.ok must be different)
+    document.getElementById('result_json').innerText = data.text;
+  })
+}
+</script>
+<script>
+  callLove = function(){
+	// The Endpoint URL
+  // API build on Jan 8 11 AM
+  var prompt = document.getElementById('text-val').value;
+  var length = document.getElementById('RangeLength').value;
+  var temp = document.getElementById('RangeTemp').value;
+  let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
 
 	fetch(url)
   .then(response => response.json())
