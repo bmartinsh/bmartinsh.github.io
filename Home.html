@@ -68,7 +68,7 @@
           <div id="result">
           </div>
           <div class="btn-list">
-            <a onclick="callTransFoWs()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Wake Up 🧚‍♀️</a>
+            <a onclick="callTransFoWs()"  id="state_Ws" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Wake Up 🧚‍♀️</a>
             <a onclick="callTransFoLove()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👺</a>
             <a onclick="callTransFoSfi()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👾</a>
           </div>        
@@ -224,6 +224,7 @@ fetch(url)
 .then(data => {
   // Need to update the key from the JSON file once the API will be working (data.ok must be different)
   console.log(data.confirm);
+  document.getElementById('state_Ws').innerText = "Ready 🤖";
 })
 }  
 </script>
