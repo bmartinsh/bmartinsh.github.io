@@ -168,11 +168,14 @@
         <div class="app"> 
             <h3>Add New BTS</h3>
             <div class="input-single">
+              <a id="result_jsonStt" style="min-width: 100% !important;">Need inspiration 🤔 click on Inspire Me!</a>
                 <textarea id="note-textarea" class="u-text u-text-grey-40 u-text-2" style="min-width: 100% !important;" placeholder="Create a new story by typing or using voice recognition." rows="10"></textarea>
             </div>         
             <button id="start-record-btn" title="Start Recording">▶️</button>
             <button id="pause-record-btn" title="Pause Recording">⏸</button>
-            <button id="save-note-btn" title="Save Note">Save BTS</button>   
+            <button id="save-note-btn" title="Save Note">Save BTS</button>
+            <a onclick="callLoveStt()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👺</a>
+   
             <p id="recording-instructions">Press the <strong>▶️</strong> button and allow access.</p>
             <h3>My BTS</h3>
             <ul id="notes">
@@ -357,6 +360,26 @@ sliderl.oninput = function() {
     var s = document.getElementById("result_json").innerText;
     h.insertAdjacentText("beforeend", s);
   }
+</script>
+
+<script>
+  callLoveStt = function(){
+	// The Endpoint URL
+  // API build on Jan 8 11 AM
+  // Test on Stt Section
+  var prompt = document.getElementById('note-textarea').value;
+  var length = document.getElementById('RangeLength').value;
+  var temp = document.getElementById('RangeTemp').value;
+  let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
+
+	fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    // Need to update the key from the JSON file once the API will be working (data.ok must be different)
+    document.getElementById('result_jsonStt').innerText = data.text;
+  })
+}
+ 
 </script>
 
   </body>
