@@ -106,33 +106,46 @@
             <!-- <input class="u-btn u-btn-round" type="submit" value="Add to my story" onClick="appPredict()"> -->
             <div id="pdf" class="u-container-style u-custom-item u-list-item u-repeater-item u-shape-rectangle">
                 <div rows=4 class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-container-layout-1">
-                  <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="10" style="min-width: 100% !important;" placeholder="Once upon a time" ></textarea>
+                  <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="10" style="min-width: 100% !important;" placeholder="Create a new story by typing or using voice recognition." ></textarea>
                 </div>
             </div>
+            <div class="btn-list">
+              <button id="start-record-btn" title="Start Recording" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color">▶️</button>
+              <button id="pause-record-btn" title="Pause Recording" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color">⏸</button>
+              <button id="save-note-btn" title="Save Note" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color">Save BTS</button>
+              <!-- <a onclick="callLoveStt()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👺</a> -->
+            </div> 
+            <p id="recording-instructions">Press the <strong>▶️</strong> button and allow access.</p>
+            <h3>My BTS</h3>
+            <ul id="notes">
+                <li>
+                    <p class="no-notes">You don't have any stories.</p>
+                </li>
+            </ul>
             <!-- <div class="btn-list">
               <a onclick="printDiv('pdf')" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">PRINT MY STORY</a>
               <a onclick="saveDiv('pdf', 'Title')"  class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-3">DOWNLOAD BTS</a>  
             </div> -->
-            <div class="app"> 
-              <h3>Add New BTS</h3>
-              <div class="input-single">
+            <!-- <div class="app">  -->
+              <!-- <h3>Add New BTS</h3> -->
+              <!-- <div class="input-single">
                 <a id="result_jsonStt" style="min-width: 100% !important;">Need inspiration 🤔 click on Inspire Me!</a>
                   <textarea id="note-textarea" class="u-text u-text-grey-40 u-text-2" style="min-width: 100% !important;" placeholder="Create a new story by typing or using voice recognition." rows="10"></textarea>
-              </div>
-              <div class="btn-list">
+              </div> -->
+              <!-- <div class="btn-list">
                 <button id="start-record-btn" title="Start Recording" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color">▶️</button>
                 <button id="pause-record-btn" title="Pause Recording" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color">⏸</button>
-                <button id="save-note-btn" title="Save Note" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color">Save BTS</button>
+                <button id="save-note-btn" title="Save Note" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color">Save BTS</button> -->
                 <!-- <a onclick="callLoveStt()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👺</a> -->
-              </div>         
-              <p id="recording-instructions">Press the <strong>▶️</strong> button and allow access.</p>
-              <h3>My BTS</h3>
+              <!-- </div>          -->
+              <!-- <p id="recording-instructions">Press the <strong>▶️</strong> button and allow access.</p> -->
+              <!-- <h3>My BTS</h3>
               <ul id="notes">
                   <li>
                       <p class="no-notes">You don't have any stories.</p>
                   </li>
-              </ul>
-          </div>
+              </ul> -->
+          <!-- </div> -->
           </div>
         </div>
       </div>

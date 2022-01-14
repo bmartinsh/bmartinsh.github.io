@@ -9,7 +9,7 @@ try {
   }
   
   
-  var noteTextarea = $('#note-textarea');
+  var noteTextarea = $('#text-val');
   var instructions = $('#recording-instructions');
   var notesList = $('ul#notes');
   
