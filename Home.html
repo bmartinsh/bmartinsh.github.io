@@ -11,7 +11,7 @@
     <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="js/nicepage.js" defer=""></script>
     <!-- <script class="u-script" type="text/javascript" src="js/script.js" defer=""></script> -->
-    <meta property="og:title" content="BTS Co pilot">
+    <meta property="og:title" content="BTS Assistant">
     <meta property="og:description" content="Best place to generate Bed Time Stories">
     <meta property="og:image" content="images/c267f3ce97e6dd79975da8d5128630d3fe89635fafdcb1d683e63faf6b4c71ee632313c7288461520d2559f298e089f5e0d25aa91c8704506e1bbd_1280.png">
     <meta property="og:url" content="bts-ai.com">
@@ -64,7 +64,7 @@
     </header>
     <section class="u-align-center u-clearfix u-section-1" id="carousel_3a27">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h2>📖&nbsp; &nbsp;BTS starts here :</h2>
+        <h2>&nbsp; Wake up BTS Transformer here :</h2>
           <div id="result">
           </div>
           <div class="btn-list">
@@ -72,7 +72,9 @@
             <a onclick="callTransFoLove()" id="state_Love" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👺</a>
             <a onclick="callTransFoSfi()" id="state_SciFi" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👾</a>
           </div>        
-          <br/>
+          <h2>📖&nbsp;Get inspired by them :</h2>
+          <div id="result">
+          </div>
         <div class="btn-list">
           <a onclick="callWs()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Inspire Me 🧚‍♀️</a>
           <a onclick="callLove()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👺</a>
@@ -98,18 +100,36 @@
         </div>
         <div>
           <div class="u-repeater u-repeater-1">
-            <a id="result_json" style="min-width: 100% !important;">Need inspiration 🤔 click on Inspire Me!</a>
+            <a id="result_json" style="min-width: 100% !important;"></a>
             <!-- <input class="u-btn u-btn-round" type="submit" value="Add to my story" onClick="appPredict()"> -->
             <div id="pdf" class="u-container-style u-custom-item u-list-item u-repeater-item u-shape-rectangle">
                 <div rows=4 class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-container-layout-1">
                   <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="10" style="min-width: 100% !important;" placeholder="Once upon a time" ></textarea>
                 </div>
             </div>
-            <div class="btn-list">
+            <!-- <div class="btn-list">
               <a onclick="printDiv('pdf')" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">PRINT MY STORY</a>
               <a onclick="saveDiv('pdf', 'Title')"  class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-3">DOWNLOAD BTS</a>  
-              <a onclick="" >🎙</a>
-            </div>
+            </div> -->
+            <div class="app"> 
+              <h3>Add New BTS</h3>
+              <div class="input-single">
+                <a id="result_jsonStt" style="min-width: 100% !important;">Need inspiration 🤔 click on Inspire Me!</a>
+                  <textarea id="note-textarea" class="u-text u-text-grey-40 u-text-2" style="min-width: 100% !important;" placeholder="Create a new story by typing or using voice recognition." rows="10"></textarea>
+              </div>         
+              <button id="start-record-btn" title="Start Recording" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">▶️</button>
+              <button id="pause-record-btn" title="Pause Recording" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">⏸</button>
+              <button id="save-note-btn" title="Save Note" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-3">Save BTS</button>
+              <!-- <a onclick="callLoveStt()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👺</a> -->
+     
+              <p id="recording-instructions">Press the <strong>▶️</strong> button and allow access.</p>
+              <h3>My BTS</h3>
+              <ul id="notes">
+                  <li>
+                      <p class="no-notes">You don't have any stories.</p>
+                  </li>
+              </ul>
+          </div>
           </div>
         </div>
       </div>
@@ -165,26 +185,8 @@
       <div class="container">
         <h2>Voice Controlled BTS App</h2>
         <h2 class="no-browser-support">This App is only available from Google Chrome.</h2>
-        <div class="app"> 
-            <h3>Add New BTS</h3>
-            <div class="input-single">
-              <a id="result_jsonStt" style="min-width: 100% !important;">Need inspiration 🤔 click on Inspire Me!</a>
-                <textarea id="note-textarea" class="u-text u-text-grey-40 u-text-2" style="min-width: 100% !important;" placeholder="Create a new story by typing or using voice recognition." rows="10"></textarea>
-            </div>         
-            <button id="start-record-btn" title="Start Recording">▶️</button>
-            <button id="pause-record-btn" title="Pause Recording">⏸</button>
-            <button id="save-note-btn" title="Save Note">Save BTS</button>
-            <a onclick="callLoveStt()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👺</a>
-   
-            <p id="recording-instructions">Press the <strong>▶️</strong> button and allow access.</p>
-            <h3>My BTS</h3>
-            <ul id="notes">
-                <li>
-                    <p class="no-notes">You don't have any stories.</p>
-                </li>
-            </ul>
-        </div>
-    </div>
+
+      </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/script.js"></script>
     </section>
