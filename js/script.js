@@ -162,7 +162,7 @@ try {
         html+= `<li class="note">
           <p class="header">
             <span class="date">${note.date}</span>
-            <a href="#" class="listen-note" title="Listen to Note">Listen to Note</a>
+            <a href="#" class="listen-note" title="Listen to your BTS">Listen to Note</a>
             <a href="#" class="delete-note" title="Delete">Delete</a>
           </p>
           <p class="content">${note.content}</p>
@@ -170,7 +170,7 @@ try {
       });
     }
     else {
-      html = '<li><p class="content">You don\'t have any notes yet.</p></li>';
+      html = '<li><p class="content">You don\'t have any stories yet.</p></li>';
     }
     notesList.html(html);
   }

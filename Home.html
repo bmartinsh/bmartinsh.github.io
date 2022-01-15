@@ -62,30 +62,32 @@
         </nav>
       </div>
     </header>
+
+
     <section class="u-align-center u-clearfix u-section-1" id="carousel_3a27">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h2>&nbsp; Wake up BTS Transformer here:</h2>
           <div id="result">
           </div>
           <div class="btn-list">
-            <a onclick="callTransFoWs()"  id="state_Ws" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Wake Up 🧚‍♀️</a>
+            <a onclick="callTransFoWs()"  id="state_Ws" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Wake up 🧚‍♀️</a>
             <a onclick="callTransFoLove()" id="state_Love" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👺</a>
             <a onclick="callTransFoSfi()" id="state_SciFi" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👾</a>
           </div>        
-          <h2>📖&nbsp;Get inspired by them:</h2>
+          <!-- <h2>📖&nbsp;Get inspired by them:</h2>
           <div id="result">
-          </div>
-        <div class="btn-list">
+          </div> -->
+        <!-- <div class="btn-list">
           <a onclick="callWs()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Inspire Me 🧚‍♀️</a>
           <a onclick="callLove()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👺</a>
           <a onclick="callSfi()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👾</a>
-        </div>
+        </div> -->
         <h2>Finetuned your parameters:</h2>
         <div id="result">
         </div>
         <div class="btn-list">
           <p class="tooltip">Length: 
-            <span class="tooltiptext">Max number of tokens to generate.</span>
+            <span class="tooltiptext">Number of words to generate.</span>
             <span name="length" id="length">
             </span>
           </p>
@@ -93,7 +95,7 @@
           <br>
           <div>
             <p class="tooltip">Temperature: 
-              <span class="tooltiptext">Controls randomness. As the temperature approaches zero, the model will become deterministic and repetitive.</span>
+              <span class="tooltiptext">Controls randomness. When the temperature gets hot I go a bit crazy 🤪</span>
               <span name="temp" id="temp">
               </span>
             </p>
@@ -106,11 +108,19 @@
             <!-- <input class="u-btn u-btn-round" type="submit" value="Add to my story" onClick="appPredict()"> -->
             <div id="pdf" class="u-container-style u-custom-item u-list-item u-repeater-item u-shape-rectangle">
                 <div rows=4 class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-container-layout-1">
-                  <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="10" style="min-width: 100% !important;" placeholder="Create a new story by typing or using voice recognition." ></textarea>
+                  <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="5" style="min-width: 100% !important;" placeholder="Create a new story by typing or using voice recognition." ></textarea>
                 </div>
             </div>
+            <h2>📖&nbsp;Get inspired by :</h2>
+            <div id="result">
+            </div>
+            <div class="btn-list">
+              <a onclick="callWs()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Fairy Tales 🧚‍♀️</a>
+              <a onclick="callLove()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Cthulhu 👺</a>
+              <a onclick="callSfi()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Sci-Fi 👾</a>
+            </div>
             <p class="no-browser-support" style="text-align: justify !important;">This Voice Recognition is only available from Google Chrome.</p>
-            <p id="recording-instructions" >Press the <strong>▶️</strong> button and allow access.</p>
+            <p id="recording-instructions" style="text-align: justify !important;">Press the <strong>▶️</strong> button and allow access.</p>
             <div class="btn-list">
               <button id="start-record-btn" title="Start Recording" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color">▶️</button>
               <button id="pause-record-btn" title="Pause Recording" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color">⏸</button>
@@ -264,7 +274,7 @@ fetch(url)
 </script>
 <script>
   callTransFoSfi = function(){
-  let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/start`; // Waiting for API SciFi
+  let url = `https://bts-gpt2-124-scifi-56chpffh5q-dt.a.run.app/start`; // Waiting for API SciFi
 fetch(url)
 .then(response => response.json())
 .then(data => {
@@ -318,7 +328,7 @@ fetch(url)
   var prompt = document.getElementById('text-val').value;
   var length = document.getElementById('RangeLength').value;
   var temp = document.getElementById('RangeTemp').value;
-  let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`; // Waiting for API SciFi
+  let url = `https://bts-gpt2-124-scifi-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`; // Waiting for API SciFi
 
 	fetch(url)
   .then(response => response.json())
@@ -340,7 +350,7 @@ callLongBTS = function(){
   .then(response => response.json())
   .then(data => {
     // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-    document.getElementById('text-val').innerText = data.full_text;
+    document.getElementById('result_json').innerText = data.full_text;
   })
 } 
 </script>
@@ -350,22 +360,22 @@ callLongBTS = function(){
         Slider Range Buttons 
   ------------------------------*/
   var slidert = document.getElementById("RangeTemp");
-var output = document.getElementById("temp");
-output.innerHTML = slidert.value;
+var outputt = document.getElementById("temp");
+outputt.innerHTML = slidert.value;
 
 slidert.oninput = function() {
-  output.innerHTML = this.value;
+  outputt.innerHTML = this.value;
 }
 </script>
 
 <script>
 
 var sliderl = document.getElementById("RangeLength");
-var output = document.getElementById("length");
-output.innerHTML = sliderl.value;
+var outputl = document.getElementById("length");
+outputl.innerHTML = sliderl.value;
 
 sliderl.oninput = function() {
-  output.innerHTML = this.value;
+  outputl.innerHTML = this.value;
 }
 </script>
 
