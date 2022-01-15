@@ -20,12 +20,14 @@
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
   background-color: #e4f1f1;
   color: rgb(94, 93, 93);
   text-align: center;
   border-radius: 6px;
-  padding: 5px 0;
+  padding: 10px 20px;
+  max-height: 120px;
+  width: 300%;
+  overflow-x: visible;
   
   /* Position the tooltip */
   position: absolute;
