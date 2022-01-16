@@ -73,7 +73,8 @@
             <a onclick="callTransFoWs()"  id="state_Ws" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Wake up 🧚‍♀️</a>
             <a onclick="callTransFoLove()" id="state_Love" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👺</a>
             <a onclick="callTransFoSfi()" id="state_SciFi" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👾</a>
-          </div>        
+          </div> 
+                 
           <!-- <h2>📖&nbsp;Get inspired by them:</h2>
           <div id="result">
           </div> -->
@@ -104,6 +105,7 @@
         </div>
         <div>
           <div class="u-repeater u-repeater-1">
+            <div hidden id="spinner"></div>
             <a id="result_json" style="min-width: 100% !important;"></a>
             <!-- <input class="u-btn u-btn-round" type="submit" value="Add to my story" onClick="appPredict()"> -->
             <div id="pdf" class="u-container-style u-custom-item u-list-item u-repeater-item u-shape-rectangle">
@@ -248,17 +250,33 @@
   </script>
 
 <script>
-  callTransFoWs = function(){
-  let url = `https://bts-gpt2-355-fairy-alwayson-56chpffh5q-dt.a.run.app/start`;
-
-fetch(url)
-.then(response => response.json())
-.then(data => {
+  let spinner = document.getElementById("spinner");
+  function callTransFoWs () {
+    spinner.removeAttribute('hidden');
+    let url = `https://bts-gpt2-355-fairy-alwayson-56chpffh5q-dt.a.run.app/start`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
   // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-  console.log(data.confirm);
-  document.getElementById('state_Ws').innerText = "Ready 🤖";
+      spinner.setAttribute('hidden', '');
+      console.log(data.confirm);
+      document.getElementById('state_Ws').innerText = "Ready 🤖";
 })
 }  
+
+// const spinner = document.getElementById("spinner");
+
+// function loadData() {
+//   spinner.removeAttribute('hidden');
+//   fetch('https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=5000ms')
+//     .then(response => response.json())
+//     .then(data => {
+//       spinner.setAttribute('hidden', '');
+//       console.log(data)
+//     });
+// }
+
+
 </script>
 <script>
   callTransFoLove = function(){
