@@ -84,7 +84,7 @@
             <span name="length" id="length">
             </span>
           </p>
-          <input type="range" min="10" max="50" value="20" step="10" class="sliderl" id="RangeLength">  
+          <input type="range" min="20" max="100" value="40" step="10" class="sliderl" id="RangeLength">  
           <br>
           <div>
             <p class="tooltip">Temperature: 
@@ -217,15 +217,15 @@
   </script>
 
 <script>
-  let spinner1 = document.getElementById("spinner1");
+  let spinner = document.getElementById("spinner1");
   function callTransFoWs () {
-    spinner1.removeAttribute('hidden');
+    spinner.removeAttribute('hidden');
     let url = `https://bts-gpt2-355-fairy-alwayson-56chpffh5q-dt.a.run.app/start`;
   fetch(url)
     .then(response => response.json())
     .then(data => {
   // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-      spinner1.setAttribute('hidden', '');
+      spinner.setAttribute('hidden', '');
       console.log(data.confirm);
       document.getElementById('state_Ws').innerText = "Ready 🤖";
 })
@@ -233,15 +233,15 @@
 
 </script>
 <script>
-let spinner2 = document.getElementById("spinner2");
+let spinnerA = document.getElementById("spinner2");
   function callTransFoLove () {
-    spinner2.removeAttribute('hidden');
+    spinnerA.removeAttribute('hidden');
     let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/start`;
   fetch(url)
     .then(response => response.json())
     .then(data => {
   // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-      spinner2.setAttribute('hidden', '');
+      spinnerA.setAttribute('hidden', '');
       console.log(data.confirm);
       document.getElementById('state_Love').innerText = "Ready 🤖";
 })
@@ -250,24 +250,24 @@ let spinner2 = document.getElementById("spinner2");
 
 </script>
 <script>
-let spinner3 = document.getElementById("spinner3");
+let spinnerB = document.getElementById("spinner3");
   function callTransFoSfi () {
-    spinner3.removeAttribute('hidden');
+    spinnerB.removeAttribute('hidden');
     let url = `https://bts-gpt2-124-scifi-56chpffh5q-dt.a.run.app/start`;
   fetch(url)
     .then(response => response.json())
     .then(data => {
   // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-      spinner3.setAttribute('hidden', '');
+      spinnerB.setAttribute('hidden', '');
       console.log(data.confirm);
       document.getElementById('state_SciFi').innerText = "Ready 🤖";
 })
 } 
 </script>
 <script>
-let spinner4 = document.getElementById("spinner4");
+let spinnerC = document.getElementById("spinner4");
   function callWs () {
-    spinner4.removeAttribute('hidden');
+    spinnerC.removeAttribute('hidden');
     var prompt = document.getElementById('text-val').value;
     var length = document.getElementById('RangeLength').value;
     var temp = document.getElementById('RangeTemp').value;
@@ -276,15 +276,15 @@ let spinner4 = document.getElementById("spinner4");
     .then(response => response.json())
     .then(data => {
   // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-      spinner4.setAttribute('hidden', '');
+      spinnerC.setAttribute('hidden', '');
       document.getElementById('result_json').innerText = data.text;
 })
 } 
 </script>
 <script>
-let spinner5 = document.getElementById("spinner5");
+let spinnerD = document.getElementById("spinner5");
   function callLove () {
-    spinner5.removeAttribute('hidden');
+    spinnerD.removeAttribute('hidden');
     var prompt = document.getElementById('text-val').value;
     var length = document.getElementById('RangeLength').value;
     var temp = document.getElementById('RangeTemp').value;
@@ -293,16 +293,16 @@ let spinner5 = document.getElementById("spinner5");
     .then(response => response.json())
     .then(data => {
   // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-      spinner5.setAttribute('hidden', '');
+      spinnerD.setAttribute('hidden', '');
       document.getElementById('result_json').innerText = data.text;
 })
 } 
 
 </script>
 <script>
-let spinner6 = document.getElementById("spinner6");
+let spinnerE = document.getElementById("spinner6");
   function callSfi () {
-    spinner6.removeAttribute('hidden');
+    spinnerE.removeAttribute('hidden');
     var prompt = document.getElementById('text-val').value;
     var length = document.getElementById('RangeLength').value;
     var temp = document.getElementById('RangeTemp').value;
@@ -311,16 +311,16 @@ let spinner6 = document.getElementById("spinner6");
     .then(response => response.json())
     .then(data => {
   // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-      spinner6.setAttribute('hidden', '');
+      spinnerE.setAttribute('hidden', '');
       document.getElementById('result_json').innerText = data.text;
 })
 }
 
 </script>
 <script>
-let spinner7 = document.getElementById("spinner7");
+let spinnerF = document.getElementById("spinner7");
   function callLongBTS () {
-    spinner7.removeAttribute('hidden');
+    spinnerF.removeAttribute('hidden');
     var prompt = document.getElementById('text-val').value;
     var length = document.getElementById('RangeLength').value;
     var temp = document.getElementById('RangeTemp').value;
@@ -329,7 +329,7 @@ let spinner7 = document.getElementById("spinner7");
     .then(response => response.json())
     .then(data => {
   // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-      spinner7.setAttribute('hidden', '');
+      spinnerF.setAttribute('hidden', '');
       document.getElementById('result_json').innerText = data.text;
 })
 }
