@@ -2,7 +2,7 @@
 <html style="font-size: 16px;"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="BTS AI, 1, Demo Day Batch#708, DATA SCIENCE TEAM BTS">
+    <meta name="keywords" content="BTS AI, BTS Assistant, Demo Day Batch#708, Le Wagon, DATA SCIENCE TEAM BTS">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Home</title>
@@ -74,15 +74,7 @@
             <a onclick="callTransFoLove()" id="state_Love" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👺</a>
             <a onclick="callTransFoSfi()" id="state_SciFi" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Wake up 👾</a>
           </div> 
-                 
-          <!-- <h2>📖&nbsp;Get inspired by them:</h2>
-          <div id="result">
-          </div> -->
-        <!-- <div class="btn-list">
-          <a onclick="callWs()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-1">Inspire Me 🧚‍♀️</a>
-          <a onclick="callLove()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👺</a>
-          <a onclick="callSfi()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👾</a>
-        </div> -->
+
         <h2>Finetuned your parameters:</h2>
         <div id="result">
         </div>
@@ -107,7 +99,6 @@
           <div class="u-repeater u-repeater-1">
             <div hidden id="spinner"></div>
             <a id="result_json" style="min-width: 100% !important;"></a>
-            <!-- <input class="u-btn u-btn-round" type="submit" value="Add to my story" onClick="appPredict()"> -->
             <div id="pdf" class="u-container-style u-custom-item u-list-item u-repeater-item u-shape-rectangle">
                 <div rows=4 class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-container-layout-1">
                   <textarea id="text-val" class="u-text u-text-grey-40 u-text-2" rows="5" style="min-width: 100% !important;" placeholder="Create a new story by typing or using voice recognition." ></textarea>
@@ -127,7 +118,6 @@
               <button id="start-record-btn" title="Start Recording" >Start ▶️</button>
               <button id="pause-record-btn" title="Pause Recording" >Pause ⏸</button>
               <button id="save-note-btn" title="Save Note" >Save BTS</button>
-              <!-- <a onclick="callLoveStt()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👺</a> -->
             </div>             
             <h3 style="text-align: justify !important;">My BTS</h3>
             <ul style="text-align: justify !important;" id="notes">
@@ -135,30 +125,6 @@
                     <p style="text-align: justify !important;" class="no-notes">You don't have any stories.</p>
                 </li>
             </ul>
-            <!-- <div class="btn-list">
-              <a onclick="printDiv('pdf')" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">PRINT MY STORY</a>
-              <a onclick="saveDiv('pdf', 'Title')"  class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-3">DOWNLOAD BTS</a>  
-            </div> -->
-            <!-- <div class="app">  -->
-              <!-- <h3>Add New BTS</h3> -->
-              <!-- <div class="input-single">
-                <a id="result_jsonStt" style="min-width: 100% !important;">Need inspiration 🤔 click on Inspire Me!</a>
-                  <textarea id="note-textarea" class="u-text u-text-grey-40 u-text-2" style="min-width: 100% !important;" placeholder="Create a new story by typing or using voice recognition." rows="10"></textarea>
-              </div> -->
-              <!-- <div class="btn-list">
-                <button id="start-record-btn" title="Start Recording" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color">▶️</button>
-                <button id="pause-record-btn" title="Pause Recording" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color">⏸</button>
-                <button id="save-note-btn" title="Save Note" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color">Save BTS</button> -->
-                <!-- <a onclick="callLoveStt()" class="u-btn u-btn-round u-button-style u-gradient u-none u-radius-4 u-text-body-alt-color u-btn-2">Inspire Me 👺</a> -->
-              <!-- </div>          -->
-              <!-- <p id="recording-instructions">Press the <strong>▶️</strong> button and allow access.</p> -->
-              <!-- <h3>My BTS</h3>
-              <ul id="notes">
-                  <li>
-                      <p class="no-notes">You don't have any stories.</p>
-                  </li>
-              </ul> -->
-          <!-- </div> -->
           </div>
         </div>
       </div>
@@ -211,11 +177,6 @@
     </section>
 
     <section>
-      <!-- <div class="container">
-        <h2>Voice Controlled BTS App</h2>
-        <h2 class="no-browser-support">This App is only available from Google Chrome.</h2>
-
-      </div> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/script.js"></script>
     </section>
@@ -264,120 +225,116 @@
 })
 }  
 
-// const spinner = document.getElementById("spinner");
-
-// function loadData() {
-//   spinner.removeAttribute('hidden');
-//   fetch('https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=5000ms')
-//     .then(response => response.json())
-//     .then(data => {
-//       spinner.setAttribute('hidden', '');
-//       console.log(data)
-//     });
-// }
-
-
 </script>
 <script>
-  callTransFoLove = function(){
-  let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/start`;
-fetch(url)
-.then(response => response.json())
-.then(data => {
+let spinner = document.getElementById("spinner");
+  function callTransFoLove () {
+    spinner.removeAttribute('hidden');
+    let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/start`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
   // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-  console.log(data.confirm);
-  document.getElementById('state_Love').innerText = "Ready 🤖";
+      spinner.setAttribute('hidden', '');
+      console.log(data.confirm);
+      document.getElementById('state_Love').innerText = "Ready 🤖";
 })
 }  
+
+
 </script>
 <script>
-  callTransFoSfi = function(){
-  let url = `https://bts-gpt2-124-scifi-56chpffh5q-dt.a.run.app/start`; // Waiting for API SciFi
-fetch(url)
-.then(response => response.json())
-.then(data => {
+let spinner = document.getElementById("spinner");
+  function callTransFoSfi () {
+    spinner.removeAttribute('hidden');
+    let url = `https://bts-gpt2-124-scifi-56chpffh5q-dt.a.run.app/start`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
   // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-  console.log(data.confirm);
-  document.getElementById('state_SciFi').innerText = "Ready 🤖";
+      spinner.setAttribute('hidden', '');
+      console.log(data.confirm);
+      document.getElementById('state_SciFi').innerText = "Ready 🤖";
 })
-}  
-</script>
-<script>
-  callWs = function(){
-	// The Endpoint URL
-	// Google API Created on Jan 6 : https://gpt2c-56chpffh5q-uc.a.run.app/
-  // Previous API : https://bts-api-56chpffh5q-uc.a.run.app
-  // API build on Jan 8 11 AM
-  // New API 355 M : https://bts-gpt2-355-fairy-alwayson-56chpffh5q-dt.a.run.app/docs
-  var prompt = document.getElementById('text-val').value;
-  var length = document.getElementById('RangeLength').value;
-  var temp = document.getElementById('RangeTemp').value;
-  let url = `https://bts-gpt2-355-fairy-alwayson-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
-
-	fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-    document.getElementById('result_json').innerText = data.text;
-  })
-}
-</script>
-<script>
-  callLove = function(){
-	// The Endpoint URL
-  // API build on Jan 8 11 AM
-  var prompt = document.getElementById('text-val').value;
-  var length = document.getElementById('RangeLength').value;
-  var temp = document.getElementById('RangeTemp').value;
-  let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
-
-	fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-    document.getElementById('result_json').innerText = data.text;
-  })
-}
-</script>
-<script>
-  callSfi = function(){
-	// The Endpoint URL
-  // Waiting for Sci-Fi API
-  var prompt = document.getElementById('text-val').value;
-  var length = document.getElementById('RangeLength').value;
-  var temp = document.getElementById('RangeTemp').value;
-  let url = `https://bts-gpt2-124-scifi-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`; // Waiting for API SciFi
-
-	fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-    document.getElementById('result_json').innerText = data.text;
-  })
-}
-</script>
-<script>
-callLongBTS = function(){
-	// Google API
-  var prompt = document.getElementById('text-val').value;
-  // var length = document.getElementById('RangeLength').value;
-  // Calling the new API built on Jan 8 11 AM
-  let url = `https://gpt2c-56chpffh5q-uc.a.run.app/generate?prompt=${prompt}&length=1200&nsamples=1&temperature=0.7`;
-
-	fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-    document.getElementById('result_json').innerText = data.full_text;
-  })
 } 
+</script>
+<script>
+let spinner = document.getElementById("spinner");
+  function callWs () {
+    spinner.removeAttribute('hidden');
+    var prompt = document.getElementById('text-val').value;
+    var length = document.getElementById('RangeLength').value;
+    var temp = document.getElementById('RangeTemp').value;
+    let url = `https://bts-gpt2-355-fairy-alwayson-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+  // Need to update the key from the JSON file once the API will be working (data.ok must be different)
+      spinner.setAttribute('hidden', '');
+      document.getElementById('result_json').innerText = data.text;
+})
+} 
+</script>
+<script>
+let spinner = document.getElementById("spinner");
+  function callLove () {
+    spinner.removeAttribute('hidden');
+    var prompt = document.getElementById('text-val').value;
+    var length = document.getElementById('RangeLength').value;
+    var temp = document.getElementById('RangeTemp').value;
+    let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+  // Need to update the key from the JSON file once the API will be working (data.ok must be different)
+      spinner.setAttribute('hidden', '');
+      document.getElementById('result_json').innerText = data.text;
+})
+} 
+
+</script>
+<script>
+let spinner = document.getElementById("spinner");
+  function callSfi () {
+    spinner.removeAttribute('hidden');
+    var prompt = document.getElementById('text-val').value;
+    var length = document.getElementById('RangeLength').value;
+    var temp = document.getElementById('RangeTemp').value;
+    let url = `https://bts-gpt2-124-scifi-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+  // Need to update the key from the JSON file once the API will be working (data.ok must be different)
+      spinner.setAttribute('hidden', '');
+      document.getElementById('result_json').innerText = data.text;
+})
+}
+
+</script>
+<script>
+let spinner = document.getElementById("spinner");
+  function callLongBTS () {
+    spinner.removeAttribute('hidden');
+    var prompt = document.getElementById('text-val').value;
+    var length = document.getElementById('RangeLength').value;
+    var temp = document.getElementById('RangeTemp').value;
+    let url = `https://gpt2c-56chpffh5q-uc.a.run.app/generate?prompt=${prompt}&length=1200&nsamples=1&temperature=0.7`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+  // Need to update the key from the JSON file once the API will be working (data.ok must be different)
+      spinner.setAttribute('hidden', '');
+      document.getElementById('result_json').innerText = data.text;
+})
+}
+
 </script>
 
 <script>
   /*-----------------------------
         Slider Range Buttons 
   ------------------------------*/
-  var slidert = document.getElementById("RangeTemp");
+var slidert = document.getElementById("RangeTemp");
 var outputt = document.getElementById("temp");
 outputt.innerHTML = slidert.value;
 
@@ -407,26 +364,6 @@ sliderl.oninput = function() {
     var s = document.getElementById("result_json").innerText;
     h.insertAdjacentText("beforeend", s);
   }
-</script>
-
-<script>
-  callLoveStt = function(){
-	// The Endpoint URL
-  // API build on Jan 8 11 AM
-  // Test on Stt Section
-  var prompt = document.getElementById('note-textarea').value;
-  var length = document.getElementById('RangeLength').value;
-  var temp = document.getElementById('RangeTemp').value;
-  let url = `https://bts-gpt2-124-lovecraft-alwayson-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
-
-	fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    // Need to update the key from the JSON file once the API will be working (data.ok must be different)
-    document.getElementById('result_jsonStt').innerText = data.text;
-  })
-}
- 
 </script>
 
   </body>
