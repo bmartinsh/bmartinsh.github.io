@@ -162,7 +162,9 @@ try {
         html+= `<li class="note">
           <p class="header">
             <span class="date">${note.date}</span>
+            <br>
             <a href="#" class="listen-note" title="Listen to your BTS">Listen to Story</a>
+            <br>
             <a href="#" class="delete-note" title="Delete">Delete</a>
           </p>
           <p class="content">${note.content}</p>
