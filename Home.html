@@ -215,10 +215,11 @@
   </script>
 
 <script>
+  // https://atg-gpt2-124-fairy-56chpffh5q-dt.a.run.app/
   let spinner = document.getElementById("spinner1");
   function callTransFoWs () {
     spinner.removeAttribute('hidden');
-    let url = `https://bts-gpt2-355-fairy-alwayson-56chpffh5q-dt.a.run.app/start`;
+    let url = `https://atg-gpt2-124-fairy-56chpffh5q-dt.a.run.app/start`;
   fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -263,13 +264,15 @@ let spinnerB = document.getElementById("spinner3");
 } 
 </script>
 <script>
+  //https://atg-gpt2-124-fairy-56chpffh5q-dt.a.run.app/
+  // Main API : https://bts-gpt2-355-fairy-alwayson-56chpffh5q-dt.a.run.app/
 let spinnerC = document.getElementById("spinner4");
   function callWs () {
     spinnerC.removeAttribute('hidden');
     var prompt = document.getElementById('text-val').value;
     var length = document.getElementById('RangeLength').value;
     var temp = document.getElementById('RangeTemp').value;
-    let url = `https://bts-gpt2-355-fairy-alwayson-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
+    let url = `https://atg-gpt2-124-fairy-56chpffh5q-dt.a.run.app/generate?prompt=${prompt}&length=${length}&nsamples=1&temperature=${temp}`;
   fetch(url)
     .then(response => response.json())
     .then(data => {
