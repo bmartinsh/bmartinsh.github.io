@@ -1,379 +1,577 @@
 <!DOCTYPE html>
-<html style="font-size: 16px;"><head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Bedtime Stories AI, Claude AI, Kids Stories, AI Storyteller, Children Stories">
-    <meta name="description" content="Generate magical bedtime stories for kids powered by Claude AI">
-    <title>Bedtime Stories AI 🌙</title>
-    <link rel="icon" type="image/x-icon" href="images/c267f3ce97e6dd79975da8d5128630d3fe89635fafdcb1d683e63faf6b4c71ee632313c7288461520d2559f298e089f5e0d25aa91c8704506e1bbd_1280.png">
-    <link rel="stylesheet" href="css/Home.css" media="screen">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <meta property="og:title" content="Bedtime Stories AI">
-    <meta property="og:description" content="Generate magical bedtime stories for kids powered by Claude AI">
-    <meta property="og:image" content="images/c267f3ce97e6dd79975da8d5128630d3fe89635fafdcb1d683e63faf6b4c71ee632313c7288461520d2559f298e089f5e0d25aa91c8704506e1bbd_1280.png">
-    <meta property="og:url" content="bts-ai.com">
-    <meta property="og:type" content="website">
-    <meta name="theme-color" content="#0d1b3e">
+<html lang="en"><head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="description" content="Generate magical bedtime stories for kids powered by Claude AI">
+  <title>Bedtime Stories AI</title>
+  <link rel="icon" href="images/c267f3ce97e6dd79975da8d5128630d3fe89635fafdcb1d683e63faf6b4c71ee632313c7288461520d2559f298e089f5e0d25aa91c8704506e1bbd_1280.png" type="image/png">
+  <link rel="stylesheet" href="css/Home.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Bedtime Stories AI">
+  <meta property="og:description" content="Generate magical bedtime stories for kids powered by Claude AI">
+  <meta name="theme-color" content="#060d1c">
 </head>
 <body>
-    <!-- Stars Background -->
-    <div class="stars-bg" aria-hidden="true">
-        <span class="star" style="top:4%;  left:8%;  animation-delay:0s;">✦</span>
-        <span class="star" style="top:11%; left:78%; animation-delay:0.5s;">✧</span>
-        <span class="star" style="top:20%; left:33%; animation-delay:1s;">✦</span>
-        <span class="star" style="top:7%;  left:54%; animation-delay:1.4s;">✧</span>
-        <span class="star" style="top:33%; left:91%; animation-delay:0.8s;">✦</span>
-        <span class="star" style="top:62%; left:12%; animation-delay:2s;">✧</span>
-        <span class="star" style="top:70%; left:63%; animation-delay:0.3s;">✦</span>
-        <span class="star" style="top:83%; left:43%; animation-delay:1.7s;">✧</span>
-        <span class="star" style="top:47%; left:4%;  animation-delay:0.6s;">✦</span>
-        <span class="star" style="top:16%; left:94%; animation-delay:1.2s;">✧</span>
-        <span class="star" style="top:54%; left:82%; animation-delay:2.2s;">✦</span>
-        <span class="star" style="top:91%; left:72%; animation-delay:0.9s;">✧</span>
-        <span class="star" style="top:38%; left:58%; animation-delay:1.6s;">✦</span>
-        <span class="star" style="top:76%; left:27%; animation-delay:0.2s;">✧</span>
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">🌙 <span>Bedtime Stories</span></a>
+    <nav class="main-nav">
+      <a href="Home.html" class="nav-link is-active">Home</a>
+      <a href="About.html" class="nav-link">About</a>
+      <a href="Contact.html" class="nav-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     HERO  — full-screen night sky
+═══════════════════════════════════════════ -->
+<section class="hero" id="hero">
+
+  <!-- Dot stars (filled by JS) -->
+  <div class="star-field" id="star-field" aria-hidden="true"></div>
+
+  <!-- CSS moon — no image needed -->
+  <div class="moon" aria-hidden="true">
+    <div class="moon-crater mc1"></div>
+    <div class="moon-crater mc2"></div>
+    <div class="moon-crater mc3"></div>
+  </div>
+
+  <!-- Headline -->
+  <div class="hero-copy">
+    <h1 class="hero-h1">What story shall we<br>tell tonight?</h1>
+    <p class="hero-sub">Every night deserves a new adventure — pick a beginning and let Claude weave the magic</p>
+  </div>
+
+  <!-- Story-starter cards -->
+  <div class="starters">
+    <p class="starters-eyebrow">✦ &nbsp;Choose a beginning below&nbsp; ✦</p>
+    <div class="starters-grid">
+
+      <button class="starter-card sc-gold"
+        data-story="Once there was a tiny dragon who sneezed glitter instead of fire, and all the other dragons thought she was very peculiar indeed."
+        onclick="useStarter(this)">
+        <span class="sc-emoji">🐉</span>
+        <p class="sc-quote">"Once there was a tiny dragon who sneezed glitter instead of fire…"</p>
+        <span class="sc-cta">Begin this story →</span>
+      </button>
+
+      <button class="starter-card sc-sky"
+        data-story="Zara pressed the big red button on her cardboard rocket and felt the whole treehouse lift slowly off the ground and into a sky full of friendly stars."
+        onclick="useStarter(this)">
+        <span class="sc-emoji">🚀</span>
+        <p class="sc-quote">"Zara pressed the big red button on her cardboard rocket, and the whole treehouse left the ground…"</p>
+        <span class="sc-cta">Begin this story →</span>
+      </button>
+
+      <button class="starter-card sc-teal"
+        data-story="At the bottom of the old garden well, behind a curtain of ferns, lived a mermaid who had never seen the rain — and tonight she had a plan."
+        onclick="useStarter(this)">
+        <span class="sc-emoji">🧜‍♀️</span>
+        <p class="sc-quote">"At the bottom of the garden well lived a mermaid who had never seen the rain — and she had a plan…"</p>
+        <span class="sc-cta">Begin this story →</span>
+      </button>
+
+      <button class="starter-card sc-rose"
+        data-story="The fox with silver paws knew three secrets. She kept them under her tongue like cool river stones. Tonight, she would share one with someone who truly needed it."
+        onclick="useStarter(this)">
+        <span class="sc-emoji">🦊</span>
+        <p class="sc-quote">"The fox with silver paws knew three secrets. Tonight she would share one of them…"</p>
+        <span class="sc-cta">Begin this story →</span>
+      </button>
+
+    </div>
+    <button class="own-story-btn" onclick="scrollToStudio()">
+      ✏️ &nbsp;Write your own story instead
+    </button>
+  </div>
+
+  <!-- Castle silhouette landscape -->
+  <div class="landscape" aria-hidden="true">
+    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Distant hills -->
+      <path d="M0,220 Q200,155 400,185 Q600,160 700,175 Q800,162 900,178 Q1100,155 1200,170 Q1350,160 1440,168 L1440,220 Z" fill="#040b18" opacity="0.6"/>
+
+      <!-- Left tree cluster -->
+      <ellipse cx="72" cy="178" rx="44" ry="62" fill="#050d1b"/>
+      <rect x="67" y="208" width="10" height="12" fill="#050d1b"/>
+      <ellipse cx="155" cy="188" rx="34" ry="50" fill="#060e1c"/>
+      <rect x="150" y="210" width="10" height="10" fill="#060e1c"/>
+      <ellipse cx="225" cy="194" rx="25" ry="40" fill="#060e1d"/>
+
+      <!-- Castle left tower -->
+      <rect x="615" y="55" width="48" height="128" fill="#060d1c"/>
+      <!-- Battlements left tower -->
+      <rect x="615" y="43" width="10" height="14" fill="#060d1c"/>
+      <rect x="628" y="43" width="10" height="14" fill="#060d1c"/>
+      <rect x="641" y="43" width="10" height="14" fill="#060d1c"/>
+      <rect x="654" y="43" width="9"  height="14" fill="#060d1c"/>
+      <!-- Left tower window (amber glow) -->
+      <rect x="625" y="78" width="13" height="20" rx="7" fill="#fbbf24" opacity="0.65"/>
+      <rect x="625" y="78" width="13" height="20" rx="7" fill="url(#wglow)"/>
+
+      <!-- Castle right tower -->
+      <rect x="777" y="55" width="48" height="128" fill="#060d1c"/>
+      <!-- Battlements right tower -->
+      <rect x="777" y="43" width="10" height="14" fill="#060d1c"/>
+      <rect x="790" y="43" width="10" height="14" fill="#060d1c"/>
+      <rect x="803" y="43" width="10" height="14" fill="#060d1c"/>
+      <rect x="816" y="43" width="9"  height="14" fill="#060d1c"/>
+      <!-- Right tower window -->
+      <rect x="802" y="78" width="13" height="20" rx="7" fill="#fbbf24" opacity="0.65"/>
+
+      <!-- Castle main body -->
+      <rect x="663" y="85" width="114" height="135" fill="#070e1d"/>
+      <!-- Battlements main body -->
+      <rect x="663" y="73" width="10" height="14" fill="#070e1d"/>
+      <rect x="676" y="73" width="10" height="14" fill="#070e1d"/>
+      <rect x="689" y="73" width="10" height="14" fill="#070e1d"/>
+      <rect x="702" y="73" width="10" height="14" fill="#070e1d"/>
+      <rect x="715" y="73" width="10" height="14" fill="#070e1d"/>
+      <rect x="728" y="73" width="10" height="14" fill="#070e1d"/>
+      <rect x="741" y="73" width="10" height="14" fill="#070e1d"/>
+      <rect x="754" y="73" width="10" height="14" fill="#070e1d"/>
+      <rect x="767" y="73" width="9"  height="14" fill="#070e1d"/>
+
+      <!-- Center spire -->
+      <rect x="701" y="35" width="38" height="52" fill="#060d1c"/>
+      <polygon points="720,8 701,37 739,37" fill="#050c1b"/>
+      <!-- Spire window -->
+      <rect x="707" y="44" width="10" height="14" rx="5" fill="#fbbf24" opacity="0.8"/>
+
+      <!-- Battlements on spire base -->
+      <rect x="701" y="23" width="8" height="13" fill="#060d1c"/>
+      <rect x="712" y="23" width="8" height="13" fill="#060d1c"/>
+      <rect x="723" y="23" width="8" height="13" fill="#060d1c"/>
+      <rect x="734" y="23" width="7" height="13" fill="#060d1c"/>
+
+      <!-- Main body windows -->
+      <rect x="676" y="112" width="13" height="20" rx="7" fill="#fbbf24" opacity="0.35"/>
+      <rect x="755" y="112" width="13" height="20" rx="7" fill="#fbbf24" opacity="0.35"/>
+      <rect x="713" y="108" width="14" height="22" rx="7" fill="#fbbf24" opacity="0.28"/>
+
+      <!-- Gate arch -->
+      <rect x="700" y="160" width="40" height="60" fill="#030810"/>
+      <ellipse cx="720" cy="160" rx="20" ry="10" fill="#030810"/>
+
+      <!-- Glow under lit windows -->
+      <defs>
+        <radialGradient id="wglow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <ellipse cx="631" cy="105" rx="18" ry="10" fill="#fbbf24" opacity="0.07"/>
+      <ellipse cx="808" cy="105" rx="18" ry="10" fill="#fbbf24" opacity="0.07"/>
+      <ellipse cx="714" cy="56"  rx="14" ry="8"  fill="#fbbf24" opacity="0.12"/>
+
+      <!-- Right tree cluster -->
+      <ellipse cx="1260" cy="184" rx="42" ry="58" fill="#050d1b"/>
+      <rect x="1255" y="212" width="10" height="8" fill="#050d1b"/>
+      <ellipse cx="1345" cy="192" rx="32" ry="48" fill="#060e1c"/>
+      <ellipse cx="1418" cy="198" rx="24" ry="40" fill="#060e1d"/>
+
+      <!-- Ground fill -->
+      <path d="M0,220 C240,204 480,212 640,208 L800,208 C960,212 1200,204 1440,198 L1440,220 Z" fill="#060d1c"/>
+    </svg>
+  </div>
+
+</section><!-- /hero -->
+
+<!-- ═══════════════════════════════════════════
+     STORY STUDIO
+═══════════════════════════════════════════ -->
+<main class="studio" id="studio">
+  <div class="studio-inner">
+
+    <!-- API Key (collapsed by default if key exists) -->
+    <details class="api-panel" id="api-panel">
+      <summary class="api-summary">
+        <span class="api-sum-left">
+          <span class="api-lock">🔑</span>
+          <span>Claude API Key</span>
+          <span class="api-badge" id="api-badge"></span>
+        </span>
+        <span class="api-chevron">▾</span>
+      </summary>
+      <div class="api-body">
+        <div class="api-row">
+          <input type="password" id="api-key-input" placeholder="sk-ant-api03-…" class="api-input" autocomplete="off">
+          <button onclick="toggleApiKey()" class="btn-ghost" title="Show / hide">👁</button>
+          <button onclick="saveApiKey()" class="btn-solid">Save</button>
+        </div>
+        <p class="api-hint">
+          Get your key at <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a>
+          · Stored only in your browser
+        </p>
+      </div>
+    </details>
+
+    <!-- Story workspace -->
+    <div class="card workspace" id="workspace">
+      <div class="card-title">
+        <span>📖</span>
+        <h2>Your Story</h2>
+      </div>
+      <textarea id="text-val"
+        placeholder="Pick a beginning above — or start typing your own story here…"
+        rows="7"></textarea>
+      <!-- AI result appears here -->
+      <div id="result_json" class="ai-result" style="display:none;"></div>
+      <div class="workspace-toolbar">
+        <button id="append-btn" onclick="appendStory()" class="btn-accent" style="display:none;">
+          ✚ Add to Story
+        </button>
+        <button onclick="saveDiv()"  class="btn-ghost-sm">📄 PDF</button>
+        <button onclick="printDiv()" class="btn-ghost-sm">🖨 Print</button>
+      </div>
     </div>
 
-    <!-- Header -->
-    <header class="bts-header">
-        <div class="header-container">
-            <a href="index.html" class="header-logo">
-                <img src="images/c267f3ce97e6dd79975da8d5128630d3fe89635fafdcb1d683e63faf6b4c71ee632313c7288461520d2559f298e089f5e0d25aa91c8704506e1bbd_1280.png" alt="BTS Logo" class="logo-img">
-                <span class="logo-text">Bedtime Stories AI</span>
-            </a>
-            <nav class="header-nav">
-                <a href="Home.html" class="nav-link active">Home</a>
-                <a href="About.html" class="nav-link">About</a>
-                <a href="Contact.html" class="nav-link">Contact</a>
-            </nav>
-        </div>
-    </header>
+    <!-- Genre / Generate -->
+    <div class="card generate-card">
+      <div class="card-title">
+        <span>✨</span>
+        <h2>Pick a style &amp; generate</h2>
+      </div>
+      <p class="gen-hint">Claude will continue your story in the chosen style</p>
+      <div class="genre-row">
 
-    <!-- Main Content -->
-    <main class="bts-main">
-        <div class="main-container">
+        <button onclick="callClaude('fairy')" class="genre-btn g-fairy">
+          <span class="g-em">🧚‍♀️</span>
+          <strong>Fairy Tales</strong>
+          <span>Magical &amp; enchanting</span>
+        </button>
 
-            <!-- Hero -->
-            <div class="hero-title">
-                <h1>🌙 Magical Bedtime Stories</h1>
-                <p>Create enchanting tales for your little ones, powered by Claude AI</p>
-            </div>
+        <button onclick="callClaude('adventure')" class="genre-btn g-adventure">
+          <span class="g-em">👺</span>
+          <strong>Adventure</strong>
+          <span>Brave &amp; exciting</span>
+        </button>
 
-            <!-- API Key Card -->
-            <div class="card api-card">
-                <div class="card-header">
-                    <span class="card-icon">🔑</span>
-                    <h3>Claude API Key</h3>
-                </div>
-                <div class="api-key-wrapper">
-                    <input type="password" id="api-key-input" placeholder="sk-ant-api03-..." class="api-key-input" autocomplete="off">
-                    <button onclick="toggleApiKeyVisibility()" class="btn-icon" title="Toggle visibility">👁</button>
-                    <button onclick="saveApiKey()" class="btn-save-key">Save</button>
-                </div>
-                <p class="api-hint">
-                    Get your key at <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a>
-                    &nbsp;·&nbsp; Stored only in your browser
-                </p>
-            </div>
+        <button onclick="callClaude('scifi')" class="genre-btn g-scifi">
+          <span class="g-em">👾</span>
+          <strong>Sci-Fi</strong>
+          <span>Cosmic &amp; curious</span>
+        </button>
 
-            <!-- Story Workspace -->
-            <div class="card story-card">
-                <div class="card-header">
-                    <span class="card-icon">📖</span>
-                    <h3>Your Story</h3>
-                </div>
-                <textarea id="text-val" placeholder="Once upon a time, in a land far away..." rows="6"></textarea>
-                <div id="result_json" class="story-result" style="display:none;"></div>
-                <div class="story-actions">
-                    <button onclick="appendStory()" class="btn-secondary" id="append-btn" style="display:none;">✚ Add to Story</button>
-                    <button onclick="saveDiv()" class="btn-secondary">📄 Save PDF</button>
-                    <button onclick="printDiv()" class="btn-secondary">🖨 Print</button>
-                </div>
-            </div>
-
-            <!-- Generate -->
-            <div class="card genre-card">
-                <div class="card-header">
-                    <span class="card-icon">✨</span>
-                    <h3>Generate with Claude</h3>
-                </div>
-                <p class="genre-hint">Type a story beginning above, then pick a style:</p>
-                <div class="genre-buttons">
-                    <button onclick="callClaude('fairy')" class="genre-btn genre-fairy">
-                        <span class="genre-icon">🧚‍♀️</span>
-                        <span class="genre-name">Fairy Tales</span>
-                        <span class="genre-desc">Magical &amp; enchanting</span>
-                    </button>
-                    <button onclick="callClaude('adventure')" class="genre-btn genre-adventure">
-                        <span class="genre-icon">👺</span>
-                        <span class="genre-name">Adventure</span>
-                        <span class="genre-desc">Brave &amp; exciting</span>
-                    </button>
-                    <button onclick="callClaude('scifi')" class="genre-btn genre-scifi">
-                        <span class="genre-icon">👾</span>
-                        <span class="genre-name">Sci-Fi</span>
-                        <span class="genre-desc">Cosmic &amp; curious</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Controls -->
-            <div class="card controls-card">
-                <div class="controls-grid">
-                    <div class="control-group">
-                        <label class="control-label">
-                            Length: <span class="control-value" id="length">40</span> words
-                        </label>
-                        <input type="range" min="20" max="100" value="40" step="10" class="modern-slider" id="RangeLength">
-                        <div class="slider-labels"><span>Short</span><span>Long</span></div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">
-                            Creativity: <span class="control-value" id="temp">0.7</span>
-                        </label>
-                        <input type="range" min="0.0" max="1.0" value="0.7" step="0.1" class="modern-slider" id="RangeTemp">
-                        <div class="slider-labels"><span>Steady</span><span>Wild</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Voice Input -->
-            <div class="card voice-card">
-                <div class="card-header">
-                    <span class="card-icon">🎙️</span>
-                    <h3>Voice Input</h3>
-                </div>
-                <p class="no-browser-support" style="display:none; color:#f87171; margin-bottom:10px;">
-                    Voice recognition works in Chrome and Safari only.
-                </p>
-                <p id="recording-instructions" class="recording-status">
-                    Press Start and allow microphone access to dictate your story.
-                </p>
-                <div class="voice-buttons">
-                    <button id="start-record-btn" class="btn-voice btn-start">▶ Start</button>
-                    <button id="pause-record-btn" class="btn-voice btn-pause">⏸ Pause</button>
-                    <button id="save-note-btn" class="btn-primary">💾 Save Story</button>
-                </div>
-            </div>
-
-            <!-- Saved Stories -->
-            <div class="card stories-card">
-                <div class="card-header">
-                    <span class="card-icon">📚</span>
-                    <h3>My Stories</h3>
-                </div>
-                <ul id="notes" class="notes-list">
-                    <li><p class="content no-notes">You don't have any stories yet.</p></li>
-                </ul>
-            </div>
-
-        </div><!-- /.main-container -->
-    </main>
-
-    <!-- Loading Overlay -->
-    <div id="loader" hidden class="loader-overlay">
-        <div class="loader-content">
-            <div class="loader-moon">🌙</div>
-            <div class="loader-stars">
-                <span>✦</span><span>✦</span><span>✦</span>
-            </div>
-            <p>Weaving your story...</p>
-        </div>
+      </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bts-footer">
-        <p>Michael Sullivan &nbsp;·&nbsp; Lucas Crouch &nbsp;·&nbsp; Clare Zhong &nbsp;·&nbsp; Benjamin Martin</p>
-        <p>Made with ❤️ at Le Wagon &nbsp;·&nbsp; Powered by <strong>Claude AI</strong> &nbsp;·&nbsp; © 2024</p>
-    </footer>
+    <!-- Controls -->
+    <div class="card controls-card">
+      <div class="sliders">
+        <div class="slider-group">
+          <label>Story length <strong id="length">40</strong> words</label>
+          <input type="range" id="RangeLength" min="20" max="100" value="40" step="10" class="range-input">
+          <div class="range-ends"><span>Short</span><span>Long</span></div>
+        </div>
+        <div class="slider-group">
+          <label>Creativity <strong id="temp">0.7</strong></label>
+          <input type="range" id="RangeTemp" min="0" max="1" value="0.7" step="0.1" class="range-input">
+          <div class="range-ends"><span>Steady</span><span>Wild</span></div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
-        integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
-        crossorigin="anonymous"></script>
+    <!-- Voice input -->
+    <div class="card voice-card">
+      <div class="card-title"><span>🎙️</span><h2>Voice Input</h2></div>
+      <p class="no-browser-support" style="display:none; color:#f87171;">
+        Voice recognition requires Chrome or Safari.
+      </p>
+      <p id="recording-instructions" class="voice-hint">
+        Press Start and allow mic access to dictate your story.
+      </p>
+      <div class="voice-row">
+        <button id="start-record-btn"  class="btn-voice v-start">▶ Start</button>
+        <button id="pause-record-btn"  class="btn-voice v-pause">⏸ Pause</button>
+        <button id="save-note-btn"     class="btn-solid">💾 Save Story</button>
+      </div>
+    </div>
 
-    <script>
-        /* ==========================================
-           Load saved API key on page load
-           ========================================== */
-        window.addEventListener('load', function () {
-            var saved = localStorage.getItem('claude-api-key');
-            if (saved) document.getElementById('api-key-input').value = saved;
-        });
+    <!-- Saved stories -->
+    <div class="card saved-card">
+      <div class="card-title"><span>📚</span><h2>My Stories</h2></div>
+      <ul id="notes" class="notes-list">
+        <li><p class="content no-notes">You haven't saved any stories yet.</p></li>
+      </ul>
+    </div>
 
-        /* ==========================================
-           API Key helpers
-           ========================================== */
-        function getApiKey() {
-            return document.getElementById('api-key-input').value.trim();
-        }
+  </div><!-- /studio-inner -->
+</main>
 
-        function saveApiKey() {
-            var key = getApiKey();
-            if (key) {
-                localStorage.setItem('claude-api-key', key);
-                showNotification('🔑 API key saved!', 'success');
-            } else {
-                showNotification('Please enter an API key first.', 'error');
-            }
-        }
+<!-- ═══════════════════════════════════════════
+     LOADING OVERLAY
+═══════════════════════════════════════════ -->
+<div id="loader" hidden class="loader-overlay">
+  <div class="loader-box">
+    <span class="loader-moon">🌙</span>
+    <div class="loader-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <p>Claude is weaving your story…</p>
+  </div>
+</div>
 
-        function toggleApiKeyVisibility() {
-            var input = document.getElementById('api-key-input');
-            input.type = input.type === 'password' ? 'text' : 'password';
-        }
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="site-footer">
+  <p>Michael Sullivan · Lucas Crouch · Clare Zhong · Benjamin Martin</p>
+  <p>Made with ❤️ at Le Wagon · Powered by <strong>Claude AI</strong> · © 2024</p>
+</footer>
 
-        /* ==========================================
-           Call Claude AI
-           ========================================== */
-        async function callClaude(genre) {
-            var apiKey = getApiKey();
-            if (!apiKey) {
-                showNotification('Please enter your Claude API key first!', 'error');
-                document.getElementById('api-key-input').focus();
-                return;
-            }
+<!-- ═══════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+  integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+  crossorigin="anonymous"></script>
 
-            var prompt  = document.getElementById('text-val').value.trim() || 'Once upon a time';
-            var length  = document.getElementById('RangeLength').value;
-            var temp    = parseFloat(document.getElementById('RangeTemp').value);
+<script>
+/* ──────────────────────────────────────────
+   Generate dot stars in the hero
+────────────────────────────────────────── */
+(function () {
+  var field = document.getElementById('star-field');
+  if (!field) return;
+  for (var i = 0; i < 130; i++) {
+    var s = document.createElement('span');
+    var size = 0.6 + Math.random() * 1.8;
+    s.style.cssText = [
+      'position:absolute',
+      'border-radius:50%',
+      'background:rgba(255,255,255,' + (0.3 + Math.random() * 0.7) + ')',
+      'width:' + size + 'px',
+      'height:' + size + 'px',
+      'left:' + (Math.random() * 100) + '%',
+      'top:' + (Math.random() * 88) + '%',
+      'animation:starTwinkle ' + (2 + Math.random() * 4) + 's ease-in-out infinite',
+      'animation-delay:' + (Math.random() * 6) + 's'
+    ].join(';');
+    field.appendChild(s);
+  }
+})();
 
-            var systemPrompts = {
-                fairy: 'You are a magical bedtime storyteller for children. Continue the following fairy tale story in a warm, enchanting style suitable for children aged 4–10. Use gentle, whimsical language with vivid imagery. End at a natural, satisfying point. Write approximately ' + length + ' words.',
-                adventure: 'You are a creative bedtime storyteller for children. Continue the following adventure story with brave heroes and exciting (but age-appropriate) moments. Keep it fun, positive, and comforting for bedtime. Write approximately ' + length + ' words and end at a natural point.',
-                scifi: 'You are a creative bedtime storyteller for children. Continue the following science fiction story with wonder and curiosity about the cosmos, robots, or future worlds. Keep the tone uplifting and imaginative, suitable for children at bedtime. Write approximately ' + length + ' words.'
-            };
+/* ──────────────────────────────────────────
+   Story starters
+────────────────────────────────────────── */
+function useStarter(btn) {
+  var text = btn.getAttribute('data-story');
+  var ta = document.getElementById('text-val');
+  ta.value = text;
+  ta.dispatchEvent(new Event('input'));
+  scrollToStudio();
+  // Pulse the genre buttons after a moment
+  setTimeout(function () {
+    document.querySelectorAll('.genre-btn').forEach(function (b) {
+      b.classList.add('pulse');
+      setTimeout(function () { b.classList.remove('pulse'); }, 900);
+    });
+  }, 600);
+}
 
-            var loader    = document.getElementById('loader');
-            var resultEl  = document.getElementById('result_json');
-            var appendBtn = document.getElementById('append-btn');
+function scrollToStudio() {
+  document.getElementById('workspace').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
-            loader.removeAttribute('hidden');
-            resultEl.style.display = 'none';
-            resultEl.classList.remove('error');
-            appendBtn.style.display = 'none';
+/* ──────────────────────────────────────────
+   API key
+────────────────────────────────────────── */
+window.addEventListener('load', function () {
+  var saved = localStorage.getItem('claude-api-key');
+  if (saved) {
+    document.getElementById('api-key-input').value = saved;
+    updateApiBadge(true);
+  }
+});
 
-            try {
-                var response = await fetch('https://api.anthropic.com/v1/messages', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'x-api-key': apiKey,
-                        'anthropic-version': '2023-06-01',
-                        'anthropic-dangerous-direct-browser-access': 'true'
-                    },
-                    body: JSON.stringify({
-                        model: 'claude-haiku-4-5-20251001',
-                        max_tokens: Math.max(500, parseInt(length) * 8),
-                        temperature: temp,
-                        system: systemPrompts[genre],
-                        messages: [{ role: 'user', content: prompt }]
-                    })
-                });
+function getApiKey() {
+  return document.getElementById('api-key-input').value.trim();
+}
 
-                if (!response.ok) {
-                    var errData = await response.json().catch(function () { return {}; });
-                    throw new Error((errData.error && errData.error.message) || ('API error (' + response.status + ')'));
-                }
+function saveApiKey() {
+  var k = getApiKey();
+  if (k) {
+    localStorage.setItem('claude-api-key', k);
+    updateApiBadge(true);
+    // Close panel
+    document.getElementById('api-panel').removeAttribute('open');
+    toast('🔑 API key saved!', 'ok');
+  } else {
+    toast('Please enter an API key first.', 'err');
+  }
+}
 
-                var data = await response.json();
-                if (data.content && data.content[0] && data.content[0].text) {
-                    resultEl.innerText = data.content[0].text;
-                    resultEl.style.display = 'block';
-                    appendBtn.style.display = 'inline-flex';
-                    resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                } else {
-                    throw new Error('Unexpected response from Claude.');
-                }
-            } catch (err) {
-                resultEl.innerText = '❌ ' + err.message;
-                resultEl.style.display = 'block';
-                resultEl.classList.add('error');
-            } finally {
-                loader.setAttribute('hidden', '');
-            }
-        }
+function toggleApiKey() {
+  var i = document.getElementById('api-key-input');
+  i.type = i.type === 'password' ? 'text' : 'password';
+}
 
-        /* ==========================================
-           Append generated text to story textarea
-           ========================================== */
-        function appendStory() {
-            var textarea  = document.getElementById('text-val');
-            var result    = document.getElementById('result_json').innerText;
-            if (result && result.charAt(0) !== '❌') {
-                if (textarea.value && textarea.value.slice(-1) !== ' ') {
-                    textarea.value += ' ';
-                }
-                textarea.value += result;
-                textarea.dispatchEvent(new Event('input'));
-                document.getElementById('result_json').style.display = 'none';
-                document.getElementById('append-btn').style.display  = 'none';
-                textarea.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
+function updateApiBadge(hasKey) {
+  var b = document.getElementById('api-badge');
+  if (b) {
+    b.textContent   = hasKey ? '✓ Saved' : '';
+    b.style.display = hasKey ? 'inline' : 'none';
+  }
+}
 
-        /* ==========================================
-           PDF & Print
-           ========================================== */
-        function saveDiv() {
-            var text = document.getElementById('text-val').value;
-            if (!text) { showNotification('Nothing to save yet!', 'error'); return; }
-            var doc = new jsPDF();
-            doc.setFontSize(16);
-            doc.text('My Bedtime Story', 10, 15);
-            doc.setFontSize(11);
-            doc.text(text, 10, 28, { maxWidth: 185 });
-            doc.save('bedtime-story.pdf');
-        }
+/* ──────────────────────────────────────────
+   Call Claude AI
+────────────────────────────────────────── */
+async function callClaude(genre) {
+  var apiKey = getApiKey();
+  if (!apiKey) {
+    document.getElementById('api-panel').setAttribute('open', '');
+    document.getElementById('api-key-input').focus();
+    toast('Enter your Claude API key to generate a story ↑', 'err');
+    return;
+  }
 
-        function printDiv() {
-            var text = document.getElementById('text-val').value;
-            if (!text) { showNotification('Nothing to print yet!', 'error'); return; }
-            var win = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
-            win.document.write('<head><title>Bedtime Story</title></head>');
-            win.document.write('<body style="font-family:Georgia,serif;padding:48px;line-height:1.9;max-width:600px;margin:auto;color:#1e293b;">');
-            win.document.write('<h1 style="color:#5b21b6;margin-bottom:24px;">🌙 My Bedtime Story</h1>');
-            win.document.write('<p>' + text.replace(/\n/g, '<br>') + '</p>');
-            win.document.write('</body></html>');
-            win.document.close();
-            win.focus();
-            win.print();
-            win.close();
-        }
+  var prompt = document.getElementById('text-val').value.trim() || 'Once upon a time';
+  var length = document.getElementById('RangeLength').value;
+  var temp   = parseFloat(document.getElementById('RangeTemp').value);
 
-        /* ==========================================
-           Toast notifications
-           ========================================== */
-        function showNotification(message, type) {
-            var notif = document.createElement('div');
-            notif.className = 'notification notification-' + type;
-            notif.textContent = message;
-            document.body.appendChild(notif);
-            requestAnimationFrame(function () { notif.classList.add('show'); });
-            setTimeout(function () {
-                notif.classList.remove('show');
-                setTimeout(function () { notif.remove(); }, 300);
-            }, 3000);
-        }
+  var prompts = {
+    fairy:     'You are a magical bedtime storyteller. Continue the following fairy tale in a warm, enchanting style for children aged 4–10. Use gentle, whimsical language. End at a natural, satisfying point. Write approximately ' + length + ' words.',
+    adventure: 'You are a creative bedtime storyteller. Continue the following adventure story with brave heroes and age-appropriate excitement. Keep it comforting and positive for bedtime. Write approximately ' + length + ' words.',
+    scifi:     'You are a creative bedtime storyteller. Continue the following sci-fi story with wonder and curiosity — robots, space, future worlds — uplifting and imaginative, perfect for children at bedtime. Write approximately ' + length + ' words.'
+  };
 
-        /* ==========================================
-           Sliders
-           ========================================== */
-        (function () {
-            var slidert = document.getElementById('RangeTemp');
-            var outputt = document.getElementById('temp');
-            outputt.innerHTML = slidert.value;
-            slidert.oninput = function () { outputt.innerHTML = this.value; };
+  var loader    = document.getElementById('loader');
+  var resultEl  = document.getElementById('result_json');
+  var appendBtn = document.getElementById('append-btn');
 
-            var sliderl = document.getElementById('RangeLength');
-            var outputl = document.getElementById('length');
-            outputl.innerHTML = sliderl.value;
-            sliderl.oninput = function () { outputl.innerHTML = this.value; };
-        })();
-    </script>
+  loader.removeAttribute('hidden');
+  resultEl.style.display = 'none';
+  resultEl.classList.remove('is-error');
+  appendBtn.style.display = 'none';
+
+  try {
+    var res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: Math.max(500, parseInt(length) * 8),
+        temperature: temp,
+        system: prompts[genre],
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    if (!res.ok) {
+      var e = await res.json().catch(function () { return {}; });
+      throw new Error((e.error && e.error.message) || 'API error ' + res.status);
+    }
+
+    var data = await res.json();
+    if (data.content && data.content[0] && data.content[0].text) {
+      resultEl.innerHTML   = '<div class="ai-label">✨ Claude continues the story…</div>' +
+                             '<div class="ai-text">' + escHtml(data.content[0].text) + '</div>';
+      resultEl.style.display = 'block';
+      appendBtn.style.display = 'inline-flex';
+      resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+      throw new Error('Unexpected response format.');
+    }
+  } catch (err) {
+    resultEl.innerHTML = '<p>❌ ' + escHtml(err.message) + '</p>';
+    resultEl.style.display = 'block';
+    resultEl.classList.add('is-error');
+  } finally {
+    loader.setAttribute('hidden', '');
+  }
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+}
+
+/* ──────────────────────────────────────────
+   Append AI result to textarea
+────────────────────────────────────────── */
+function appendStory() {
+  var ta  = document.getElementById('text-val');
+  var txt = document.getElementById('result_json').querySelector('.ai-text');
+  if (!txt) return;
+  var raw = txt.innerText;
+  if (raw && raw.charAt(0) !== '❌') {
+    if (ta.value && ta.value.slice(-1) !== ' ') ta.value += ' ';
+    ta.value += raw;
+    ta.dispatchEvent(new Event('input'));
+    document.getElementById('result_json').style.display = 'none';
+    document.getElementById('append-btn').style.display  = 'none';
+    ta.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+/* ──────────────────────────────────────────
+   PDF & Print
+────────────────────────────────────────── */
+function saveDiv() {
+  var text = document.getElementById('text-val').value;
+  if (!text) { toast('Nothing to save yet!', 'err'); return; }
+  var doc = new jsPDF();
+  doc.setFontSize(16);
+  doc.text('My Bedtime Story', 10, 15);
+  doc.setFontSize(11);
+  doc.text(text, 10, 28, { maxWidth: 185 });
+  doc.save('bedtime-story.pdf');
+}
+
+function printDiv() {
+  var text = document.getElementById('text-val').value;
+  if (!text) { toast('Nothing to print yet!', 'err'); return; }
+  var w = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
+  w.document.write('<head><title>Bedtime Story</title></head>');
+  w.document.write('<body style="font-family:Georgia,serif;padding:48px;line-height:1.9;max-width:600px;margin:auto;color:#1e1e2e;">');
+  w.document.write('<h1 style="color:#5b21b6;">🌙 My Bedtime Story</h1>');
+  w.document.write('<p>' + text.replace(/\n/g, '<br>') + '</p>');
+  w.document.write('</body></html>');
+  w.document.close(); w.focus(); w.print(); w.close();
+}
+
+/* ──────────────────────────────────────────
+   Toast notifications
+────────────────────────────────────────── */
+function toast(msg, type) {
+  var t = document.createElement('div');
+  t.className = 'toast toast-' + type;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  requestAnimationFrame(function () { t.classList.add('show'); });
+  setTimeout(function () {
+    t.classList.remove('show');
+    setTimeout(function () { t.remove(); }, 300);
+  }, 3500);
+}
+
+/* ──────────────────────────────────────────
+   Sliders
+────────────────────────────────────────── */
+(function () {
+  var rt = document.getElementById('RangeTemp'),   ot = document.getElementById('temp');
+  var rl = document.getElementById('RangeLength'), ol = document.getElementById('length');
+  ot.textContent = rt.value;
+  ol.textContent = rl.value;
+  rt.addEventListener('input', function () { ot.textContent = this.value; });
+  rl.addEventListener('input', function () { ol.textContent = this.value; });
+})();
+</script>
 </body>
 </html>
