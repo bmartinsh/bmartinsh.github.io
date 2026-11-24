@@ -1,3 +1,9 @@
+var storyLocale = document.documentElement.lang === 'fr' ? 'fr-FR' : 'en-US';
+
+function storyLabel(english, french) {
+  return storyLocale === 'fr-FR' ? french : english;
+}
+
 try {
     var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     var recognition = new SpeechRecognition();
@@ -28,6 +34,8 @@ try {
   // If false, the recording will stop after a few seconds of silence.
   // When true, the silence period is longer (about 15 seconds),
   // allowing us to keep recording even when the user pauses. 
+  if (recognition) {
+  recognition.lang = storyLocale;
   recognition.continuous = true;
   
   // This block is called every time the Speech APi captures a line. 
@@ -55,26 +63,29 @@ try {
   };
   
   recognition.onstart = function() { 
-    instructions.text('Voice recognition activated. Try speaking into the microphone.');
+    instructions.text(storyLabel('Voice recognition activated. Try speaking into the microphone.', 'Dictée activée. Parlez dans le micro.'));
   }
   
   recognition.onspeechend = function() {
-    instructions.text('You were quiet for a while so voice recognition turned itself off.');
+    instructions.text(storyLabel('You were quiet for a while so voice recognition turned itself off.', 'La dictée s’est arrêtée après un silence.'));
   }
   
   recognition.onerror = function(event) {
     if(event.error == 'no-speech') {
-      instructions.text('No speech was detected. Try again.');  
+      instructions.text(storyLabel('No speech was detected. Try again.', 'Aucune parole détectée. Réessayez.'));
     };
   }
   
   
   
+  }
+
   /*-----------------------------
         App buttons and input 
   ------------------------------*/
   
   $('#start-record-btn').on('click', function(e) {
+    if (!recognition) return;
     if (noteContent.length) {
       noteContent += ' ';
     }
@@ -83,8 +94,8 @@ try {
   
   
   $('#pause-record-btn').on('click', function(e) {
-    recognition.stop();
-    instructions.text('Voice recognition paused.');
+    if (recognition) recognition.stop();
+    instructions.text(storyLabel('Voice recognition paused.', 'Dictée en pause.'));
   });
   
   // Sync the text inside the text area with the noteContent variable.
@@ -93,21 +104,21 @@ try {
   })
   
   $('#save-note-btn').on('click', function(e) {
-    recognition.stop();
+    if (recognition) recognition.stop();
   
     if(!noteContent.length) {
-      instructions.text('Could not save empty note. Please add a message to your note.');
+      instructions.text(storyLabel('Could not save empty note. Please add a message to your note.', 'Ajoutez du texte avant d’enregistrer votre histoire.'));
     }
     else {
       // Save note to localStorage.
       // The key is the dateTime with seconds, the value is the content of the note.
-      saveNote(new Date().toLocaleString(), noteContent);
+      saveNote(new Date().toLocaleString(storyLocale), noteContent);
   
       // Reset variables and update UI.
       noteContent = '';
       renderNotes(getAllNotes());
       noteTextarea.val('');
-      instructions.text('Note saved successfully.');
+      instructions.text(storyLabel('Note saved successfully.', 'Histoire enregistrée.'));
     }
         
   })
@@ -120,14 +131,14 @@ try {
     // Listen to the selected note.
     if(target.hasClass('listen-note')) {
       var content = target.closest('.note').find('.content').text();
-      readOutLoud(content);
+      readOutLoud(content, target.closest('.note').attr('lang'));
     }
   
     // Delete note.
     if(target.hasClass('delete-note')) {
       var dateTime = target.siblings('.date').text();  
       deleteNote(dateTime);
-      target.closest('.note').remove();
+
     }
   });
   
@@ -137,11 +148,12 @@ try {
         Speech Synthesis 
   ------------------------------*/
   
-  function readOutLoud(message) {
+  function readOutLoud(message, language) {
       var speech = new SpeechSynthesisUtterance();
   
     // Set the text and voice attributes.
       speech.text = message;
+      speech.lang = language || storyLocale;
       speech.volume = 1;
       speech.rate = 1;
       speech.pitch = 1;
@@ -159,20 +171,20 @@ try {
     var html = '';
     if(notes.length) {
       notes.forEach(function(note) {
-        html+= `<li class="note">
+        html+= `<li class="note" lang="${note.language}">
           <p class="header">
-            <span class="date">${note.date}</span>
+            <span class="date">${$('<span>').text(note.date).html()}</span>
             <br>
-            <a href="#" class="listen-note" title="Listen to your BTS">Listen to Story</a>
+            <a href="#" class="listen-note" title="${storyLabel('Listen to your BTS', 'Écouter votre histoire')}">${storyLabel('Listen to Story', 'Écouter')}</a>
             <br>
-            <a href="#" class="delete-note" title="Delete">Delete</a>
+            <a href="#" class="delete-note" title="${storyLabel('Delete', 'Supprimer')}">${storyLabel('Delete', 'Supprimer')}</a>
           </p>
-          <p class="content">${note.content}</p>
+          <p class="content">${$('<span>').text(note.content).html()}</p>
         </li>`;    
       });
     }
     else {
-      html = '<li><p class="content">You don\'t have any stories yet.</p></li>';
+      html = '<li><p class="content">' + storyLabel('You don\'t have any stories yet.', 'Vous n’avez encore enregistré aucune histoire.') + '</p></li>';
     }
     notesList.html(html);
   }
@@ -180,6 +192,7 @@ try {
   
   function saveNote(dateTime, content) {
     localStorage.setItem('note-' + dateTime, content);
+    localStorage.setItem('story-language-' + dateTime, storyLocale);
   }
   
   
@@ -188,22 +201,24 @@ try {
     var key;
     for (var i = 0; i < localStorage.length; i++) {
       key = localStorage.key(i);
-      console.log(i)
-      console.log(key)
-  
+
+
       if(key.substring(0,5) == 'note-') {
         notes.push({
           date: key.replace('note-',''),
-          content: localStorage.getItem(localStorage.key(i))
+          content: localStorage.getItem(key),
+          language: localStorage.getItem('story-language-' + key.slice(5)) === 'fr-FR' ? 'fr-FR' : 'en-US'
         });
       } 
     }
-    console.log(notes)
+
     return notes;
   }
   
   
   function deleteNote(dateTime) {
-    localStorage.removeItem('note-' + dateTime); 
+    localStorage.removeItem('note-' + dateTime);
+    localStorage.removeItem('story-language-' + dateTime);
+    renderNotes(getAllNotes());
   }
 
