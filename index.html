@@ -12,6 +12,11 @@
   <meta property="og:title" content="Bedtime Stories AI">
   <meta property="og:description" content="Generate magical bedtime stories for kids powered by Claude AI">
   <meta name="theme-color" content="#060d1c">
+  <link rel="alternate" hreflang="fr" href="Accueil.html">
+  <style>
+    .main-nav { flex-wrap: wrap; justify-content: flex-end; }
+    @media (max-width: 420px) { .header-inner { flex-wrap: wrap; justify-content: center; } }
+  </style>
 </head>
 <body>
 
@@ -25,6 +30,7 @@
       <a href="Home.html" class="nav-link is-active">Home</a>
       <a href="About.html" class="nav-link">About</a>
       <a href="Contact.html" class="nav-link">Contact</a>
+      <a href="Accueil.html" class="nav-link" hreflang="fr" lang="fr">Français</a>
     </nav>
   </div>
 </header>
@@ -469,7 +475,7 @@ async function callClaude(genre) {
         model: 'claude-haiku-4-5-20251001',
         max_tokens: Math.max(500, parseInt(length) * 8),
         temperature: temp,
-        system: prompts[genre],
+        system: prompts[genre] + ' Write the continuation in English.',
         messages: [{ role: 'user', content: prompt }]
       })
     });
